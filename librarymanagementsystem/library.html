@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexLib | High-Tech Library System</title>
+    <link rel="stylesheet" href="library.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-grid"></div>
+    <div class="scan-line"></div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <i class="fas fa-info-circle"></i>
+        <span id="toast-message">Notification</span>
+    </div>
+
+    <!-- Login Container -->
+    <div id="login-container" class="container active">
+        <div class="login-wrapper glass-panel">
+            <h1 class="system-title"><i class="fas fa-book-reader"></i> NexLib System</h1>
+
+            <!-- Login Selection Screen -->
+            <div id="login-selection" class="login-selection">
+                <p class="select-role-text">Select Authentication Protocol</p>
+                <div class="role-cards">
+                    <div class="role-card" id="btn-select-user">
+                        <i class="fas fa-user-astronaut"></i>
+                        <h3>User Access</h3>
+                    </div>
+                    <div class="role-card" id="btn-select-admin">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Admin Command</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Login Form -->
+            <form id="user-login-form" class="login-form hidden">
+                <button type="button" class="back-link" id="btn-back-user"><i class="fas fa-arrow-left"></i>
+                    Back</button>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="user-email" placeholder="Enter Gmail ID" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-mobile-alt"></i>
+                    <input type="tel" id="user-phone" placeholder="Enter Phone Number" required>
+                </div>
+
+                <div id="otp-section" class="hidden">
+                    <div class="input-group">
+                        <i class="fas fa-key"></i>
+                        <input type="text" id="user-otp" placeholder="Enter OTP">
+                    </div>
+                </div>
+
+                <button type="button" id="btn-send-otp" class="action-btn">Send OTP</button>
+                <button type="submit" id="btn-verify-otp" class="action-btn hidden">Verify & Login</button>
+            </form>
+
+            <!-- Admin Login Form -->
+            <form id="admin-login-form" class="login-form hidden">
+                <button type="button" class="back-link" id="btn-back-admin"><i class="fas fa-arrow-left"></i>
+                    Back</button>
+                <div class="input-group">
+                    <i class="fas fa-user-shield"></i>
+                    <input type="text" id="admin-username" placeholder="Admin Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="admin-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="action-btn">Access Console</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Dashboard -->
+    <div id="user-dashboard" class="container hidden">
+        <header class="dashboard-header">
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span id="display-user-email">User</span>
+            </div>
+            <h2 class="dashboard-title">Library Interface</h2>
+            <button id="user-logout" class="logout-btn"><i class="fas fa-power-off"></i> Logout</button>
+        </header>
+
+        <main class="dashboard-content">
+            <!-- Stats Summary -->
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <h3>Active Rentals</h3>
+                    <span id="active-rentals-count">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Fines</h3>
+                    <span id="total-fines">₹0</span>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-target="available-books">Available Books</button>
+                <button class="tab-btn" data-target="my-rentals">My Rentals</button>
+            </div>
+
+            <div id="available-books" class="tab-content active">
+                <div class="search-bar">
+                    <input type="text" id="book-search" placeholder="Search available books...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div id="books-grid" class="books-grid">
+                    <!-- Books will be injected here -->
+                </div>
+            </div>
+
+            <div id="my-rentals" class="tab-content">
+                <div class="rental-info-banner">
+                    <i class="fas fa-exclamation-triangle"></i> Note: Return books within 7 days to avoid a ₹100 fine.
+                </div>
+                <div id="rentals-list" class="rentals-list">
+                    <!-- Rented books will act here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="container hidden">
+        <header class="dashboard-header admin-header">
+            <div class="user-info">
+                <i class="fas fa-shield-alt"></i>
+                <span>Administrator</span>
+            </div>
+            <h2 class="dashboard-title">Command Center</h2>
+            <button id="admin-logout" class="logout-btn"><i class="fas fa-power-off"></i> Logout</button>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="admin-actions">
+                <button id="btn-add-book-modal" class="action-btn primary"><i class="fas fa-plus"></i> Add New
+                    Book</button>
+            </div>
+
+            <div class="books-management">
+                <h3>Library Inventory</h3>
+                <div class="table-responsive">
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Section</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-books-table">
+                            <!-- Admin Book Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Book Modal -->
+    <div id="book-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Add New Book</h2>
+            <form id="book-form">
+                <input type="hidden" id="book-id">
+                <div class="input-group">
+                    <label>Title</label>
+                    <input type="text" id="book-title" required>
+                </div>
+                <div class="input-group">
+                    <label>Author</label>
+                    <input type="text" id="book-author" required>
+                </div>
+                <div class="input-group">
+                    <label>Section/Genre</label>
+                    <select id="book-section" required>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Arts">Arts</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Cover Image URL (Optional)</label>
+                    <input type="url" id="book-cover" placeholder="https://example.com/image.jpg">
+                </div>
+                <button type="submit" class="action-btn">Save Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="library.js"></script>
+</body>
+
+</html>

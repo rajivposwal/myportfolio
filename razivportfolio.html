@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raziv | Data Science Engineer</title>
+    <link rel="stylesheet" href="razivportfolio.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Raziv<span class="highlight">.</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="greeting">Hello, I'm</span>
+                    <h1 class="name glitch" data-text="Raziv Poswal">Raziv Poswal</h1>
+                    <h2 class="role">I am a <span class="typing-text">Data Science Engineer</span></h2>
+                    <p class="tagline">Providing insights from data, building neural networks, and creating
+                        sophisticated web solutions.</p>
+
+                    <div class="social-links">
+                        <a href="https://github.com/rajivposwal" target="_blank" class="social-btn github magnetic-btn">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rajivposla489" target="_blank"
+                            class="social-btn linkedin magnetic-btn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-container">
+                    <div class="image-wrapper tilt-card">
+                        <img src="profile.jpg" alt="Raziv Poswal" class="profile-img">
+                        <div class="img-border"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <p>Scroll Down</p>
+            </div>
+        </section>
+
+        <section id="about" class="about-section glass-panel">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text tilt-card">
+                        <p>I am a Data Science Engineer passionate about turning raw data into meaningful insights. With
+                            expertise in machine learning, Python, and web technologies, I bridge the gap between
+                            complex algorithms and intuitive user interfaces.</p>
+                        <div class="stats-container">
+
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Dedication</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-wrapper tilt-card">
+                        <h3>Tech Stack</h3>
+                        <div class="skill-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Data Science</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title">What I Do</h2>
+                <div class="cards-grid">
+                    <div class="card glass-card tilt-card">
+                        <div class="card-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Data Science</h3>
+                        <p>Analyzing large datasets to uncover trends, build predictive models, and drive data-informed
+                            decisions.</p>
+                    </div>
+                    <div class="card glass-card tilt-card">
+                        <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3>Machine Learning</h3>
+                        <p>Developing and deploying machine learning algorithms for automation and intelligent systems.
+                        </p>
+                    </div>
+                    <div class="card glass-card tilt-card">
+                        <div class="card-icon"><i class="fas fa-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p>Creating responsive, data-driven web applications with modern frontend and backend
+                            technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card glass-card">
+                        <div class="project-image">
+                            <div class="tech-overlay"></div>
+                            <img src="lmstech.webp" alt="NexLib System" class="project-img">
+                        </div>
+                        <div class="project-info">
+                            <h3>NexLib Management System</h3>
+                            <p>A high-tech digital library platform. Features a futuristic interface, user/admin
+                                portals, automated fine calculation (₹100/week), and real-time inventory tracking.</p>
+                            <div class="project-links">
+                                <a href="http://localhost:8080/library.html" target="_blank" class="btn-link">
+                                    <i class="fas fa-play"></i> Live System
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section footer-section">
+            <div class="container">
+                <div class="contact-wrapper glass-panel">
+
+
+                    <div class="contact-details-grid">
+                        <a href="mailto:rajivposwal489@gmail.com" class="contact-item magnetic-btn">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <span>rajivposwal489@gmail.com</span>
+                            </div>
+                        </a>
+                        <div class="contact-item magnetic-btn">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <span>+91 9896144387</span>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/in/rajivposla489" target="_blank"
+                            class="contact-item magnetic-btn">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <span>/in/rajivposla489</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/rajivposwal" target="_blank" class="contact-item magnetic-btn">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h4>GitHub</h4>
+                                <span>@rajivposwal</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <footer>
+                    <p>&copy; 2024 Raziv Poswal. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="razivportfolio.js"></script>
+</body>
+
+</html>
