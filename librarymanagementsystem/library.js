@@ -58,6 +58,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookModal = document.getElementById('book-modal');
     const bookForm = document.getElementById('book-form');
     const closeModal = document.querySelector('.close-modal');
+    const themeToggle = document.getElementById('theme-toggle');
+
+    /* --- THEME LOGIC --- */
+    const savedTheme = localStorage.getItem('nexlib_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('nexlib_theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'light') {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    }
 
     /* --- LOGIN LOGIC --- */
 
