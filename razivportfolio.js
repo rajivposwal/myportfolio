@@ -167,8 +167,19 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Simple counter for stats
     function runCounter(el) {
-        // ... (keep simple counter if needed, or remove if not present in HTML)
+        const target = +el.getAttribute('data-target');
+        const increment = target / 50;
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                el.innerText = target + "+";
+                clearInterval(timer);
+            } else {
+                el.innerText = Math.ceil(current);
+            }
+        }, 30);
     }
 });
