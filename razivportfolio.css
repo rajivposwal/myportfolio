@@ -1,7 +1,8 @@
+
 :root {
-    --primary-color: #00d2ff;
-    --secondary-color: #3a7bd5;
-    --accent-color: #ff0076;
+    --primary-color: #00bbf9; /* Sky Blue */
+    --secondary-color: #ff9f1c; /* Orange */
+    --accent-color: #00f5d4; /* Light Green */
     --background: #0b0f19;
     --text-color: #ffffff;
     --text-muted: #a0aec0;
@@ -16,7 +17,7 @@
     --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sky-gradient: repeating-linear-gradient(45deg, #0b0f19 0, #0b0f19 2px, #0f1523 2px, #0f1523 4px);
-    --cloud-color: rgba(255, 255, 255, 0.02);
+    --cloud-color: rgba(255,255,255, 0.02);
 }
 
 * {
@@ -200,7 +201,7 @@ header {
 .greeting {
     display: inline-block;
     padding: 0.5rem 1.2rem;
-    background: rgba(0, 210, 255, 0.1);
+    background: rgba(0, 187, 249, 0.1);
     /* Light green */
     border-radius: 20px;
     font-size: 1.2rem;
@@ -215,7 +216,7 @@ header {
     line-height: 1.1;
     color: var(--text-color);
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    text-shadow: 0 0 10px rgba(0, 187, 249, 0.5);
 }
 
 .role {
@@ -227,7 +228,7 @@ header {
 }
 
 .typing-text {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     font-weight: 700;
     position: relative;
     border-bottom: 2px solid var(--accent-color);
@@ -270,7 +271,7 @@ header {
     background: var(--primary-color);
     color: var(--background);
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 187, 249, 0.4);
 }
 
 /* Image Wrapper */
@@ -430,7 +431,7 @@ section {
     font-size: 2.5rem;
     color: var(--secondary-color);
     margin-bottom: 1.5rem;
-    background: rgba(58, 123, 213, 0.1);
+    background: rgba(255, 159, 28, 0.1);
     /* Pale yellow */
     width: 70px;
     height: 70px;
@@ -515,7 +516,7 @@ section {
 .btn-link:hover {
     background: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(217, 159, 94, 0.4);
+    box-shadow: 0 6px 15px rgba(255, 159, 28, 0.4);
 }
 
 /* Contact */
