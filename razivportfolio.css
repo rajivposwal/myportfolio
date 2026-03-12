@@ -1,27 +1,22 @@
 :root {
-    /* Ghibli Palette */
-    --primary-color: #6a958e;
-    /* Sage Green */
-    --secondary-color: #d99f5e;
-    /* Earthy Gold */
-    --background: #f7f9f4;
-    /* Off-white/Cream */
-    --text-color: #4a4a4a;
-    /* Soft Charcoal */
-    --text-muted: #7d7d7d;
-    --card-bg: rgba(255, 255, 255, 0.9);
-    --glass-border: rgba(106, 149, 142, 0.3);
-    --nav-bg: rgba(247, 249, 244, 0.95);
+    --primary-color: #00d2ff;
+    --secondary-color: #3a7bd5;
+    --accent-color: #ff0076;
+    --background: #0b0f19;
+    --text-color: #ffffff;
+    --text-muted: #a0aec0;
+    --card-bg: rgba(16, 23, 42, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(11, 15, 25, 0.95);
 
-    --font-heading: 'Patrick Hand', cursive;
-    --font-body: 'Quicksand', sans-serif;
+    --font-heading: \'Quicksand\', sans-serif;
+    --font-body: \'Quicksand\', sans-serif;
 
     --transition-fast: 0.3s ease;
     --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    /* Ghibli Specifics */
-    --cloud-color: #ffffff;
-    --sky-gradient: linear-gradient(180deg, #dceefb 0%, #f7f9f4 100%);
+    --sky-gradient: repeating-linear-gradient(45deg, #0b0f19 0, #0b0f19 2px, #0f1523 2px, #0f1523 4px);
+    --cloud-color: rgba(255, 255, 255, 0.02);
 }
 
 * {
@@ -205,7 +200,7 @@ header {
 .greeting {
     display: inline-block;
     padding: 0.5rem 1.2rem;
-    background: #e8f5e9;
+    background: rgba(0, 210, 255, 0.1);
     /* Light green */
     border-radius: 20px;
     font-size: 1.2rem;
@@ -218,9 +213,9 @@ header {
 .name {
     font-size: 5rem;
     line-height: 1.1;
-    color: #2d3436;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
 }
 
 .role {
@@ -235,7 +230,8 @@ header {
     color: var(--secondary-color);
     font-weight: 700;
     position: relative;
-    border-bottom: 2px dashed var(--secondary-color);
+    border-bottom: 2px solid var(--accent-color);
+    color: var(--accent-color);
 }
 
 .tagline {
@@ -246,31 +242,35 @@ header {
     line-height: 1.8;
 }
 
+
 .social-links {
     display: flex;
     gap: 1.5rem;
+    align-items: center;
 }
 
 .social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
+    gap: 0.8rem;
+    padding: 0 1.5rem;
     height: 50px;
-    border-radius: 50%;
-    background: #fff;
+    border-radius: 25px;
+    background: var(--card-bg);
     color: var(--primary-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    /* Bouncy */
     font-size: 1.2rem;
-    border: 2px solid transparent;
+    border: 1px solid var(--glass-border);
+    font-weight: 600;
 }
 
 .social-btn:hover {
-    background: var(--secondary-color);
-    color: #fff;
-    transform: translateY(-5px) scale(1.1);
+    background: var(--primary-color);
+    color: var(--background);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
 }
 
 /* Image Wrapper */
@@ -289,7 +289,7 @@ header {
     /* Circle shape */
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(106, 149, 142, 0.2);
-    border: 8px solid #fff;
+    border: 4px solid var(--primary-color);
 }
 
 .profile-img {
@@ -340,7 +340,7 @@ section {
     display: flex;
     gap: 3rem;
     margin-top: 3rem;
-    background: #fff;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -375,7 +375,7 @@ section {
 
 .tag {
     padding: 0.5rem 1rem;
-    background: #fff;
+    background: var(--card-bg);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     font-size: 1rem;
@@ -400,7 +400,7 @@ section {
 
 .glass-card,
 .project-card {
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 2.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -430,7 +430,7 @@ section {
     font-size: 2.5rem;
     color: var(--secondary-color);
     margin-bottom: 1.5rem;
-    background: #fff8e1;
+    background: rgba(58, 123, 213, 0.1);
     /* Pale yellow */
     width: 70px;
     height: 70px;
@@ -443,7 +443,7 @@ section {
 .glass-card h3 {
     font-size: 1.8rem;
     margin-bottom: 0.8rem;
-    color: #2d3436;
+    color: var(--text-color);
 }
 
 .glass-card p,
@@ -463,7 +463,7 @@ section {
 .project-card {
     padding: 0;
     /* Reset for image */
-    border: 8px solid #fff;
+    border: 4px solid var(--primary-color);
     /* White border picture frame style */
 }
 
@@ -487,7 +487,7 @@ section {
 
 .project-info {
     padding: 2rem;
-    background: #fff;
+    background: var(--card-bg);
 }
 
 .project-info h3 {
@@ -520,7 +520,7 @@ section {
 
 /* Contact */
 .contact-section {
-    background: #fff;
+    background: var(--card-bg);
     margin-top: 4rem;
     border-radius: 50% 50% 0 0 / 10% 10% 0 0;
     /* Hill shape */
@@ -555,7 +555,7 @@ section {
 
 .contact-item:hover {
     transform: translateY(-5px);
-    background: #fff;
+    background: var(--card-bg);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     border-style: solid;
     border-color: var(--secondary-color);
@@ -568,7 +568,7 @@ section {
 
 .contact-item h4 {
     font-size: 1.3rem;
-    color: #2d3436;
+    color: var(--text-color);
     margin: 0;
 }
 
