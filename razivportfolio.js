@@ -182,4 +182,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 30);
     }
+
+    /* =========================================
+       6. Theme Toggle (Dark / Light)
+       ========================================= */
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        const icon = themeBtn.querySelector('i');
+        const root = document.documentElement;
+
+        // Check Local Storage on load
+        if (localStorage.getItem('theme') === 'light') {
+            root.classList.add('light-mode');
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
+
+        themeBtn.addEventListener('click', () => {
+            root.classList.toggle('light-mode');
+            
+            if (root.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    }
 });

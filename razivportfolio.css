@@ -734,3 +734,35 @@ footer {
         font-size: 0.85rem;
     }
 }
+
+/* Theme Toggle & Light Mode */
+:root.light-mode {
+    --primary-color: #0077b6; /* darker sky blue for contrast */
+    --secondary-color: #f77f00; /* deeper orange */
+    --accent-color: #00b4d8; 
+    --background: #f8f9fa;
+    --text-color: #212529;
+    --text-muted: #6c757d;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --nav-bg: rgba(248, 249, 250, 0.98);
+    --sky-gradient: repeating-linear-gradient(45deg, #f8f9fa 0, #f8f9fa 2px, #e9ecef 2px, #e9ecef 4px);
+    --cloud-color: rgba(0,0,0, 0.03);
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: 0.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle-btn:hover {
+    color: var(--primary-color);
+    transform: rotate(30deg) scale(1.1);
+}
