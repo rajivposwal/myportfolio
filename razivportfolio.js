@@ -69,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* =========================================
-       4. Fireflies / Dust Motes (Replacing Neural Network)
+    /* =========================================
+       4. Cosmic Starfield (Replacing Fireflies)
        ========================================= */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
@@ -89,32 +90,55 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 3 + 1; // Variable size
-            this.speedX = Math.random() * 0.5 - 0.25; // Slow drift
-            this.speedY = Math.random() * 0.5 - 0.25;
-            this.color = `rgba(255, 248, 225, ${Math.random() * 0.5 + 0.1})`; // Warm light
+            this.size = Math.random() * 2.5; // Star size
+            this.speedX = (Math.random() - 0.5) * 0.3; // Tiny drift
+            this.speedY = (Math.random() - 0.5) * 0.3;
+            // Space star colors: Deep blue, bright white, faint yellow, cyan
+            const colors = ['#ffffff', '#e0f7fa', '#caf0f8', '#ffea00', '#d8b4e2'];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.opacity = Math.random() * 0.8 + 0.2; // Twinkle baseline
+            this.twinkleSpeed = Math.random() * 0.02 + 0.005;
         }
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
 
-            // Wrap around screen
+            // Twinkle effect
+            this.opacity -= this.twinkleSpeed;
+            if (this.opacity <= 0.1 || this.opacity >= 1) {
+                this.twinkleSpeed *= -1; // Reverse fade
+            }
+
+            // Cosmos endless wrap around
             if (this.x > canvas.width) this.x = 0;
             else if (this.x < 0) this.x = canvas.width;
             if (this.y > canvas.height) this.y = 0;
             else if (this.y < 0) this.y = canvas.height;
         }
         draw() {
+            ctx.save();
+            ctx.globalAlpha = this.opacity;
             ctx.fillStyle = this.color;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
+            
+            // Core glow for bigger stars
+            if (this.size > 1.5) {
+                ctx.shadowBlur = targetGlowSize(this.size);
+                ctx.shadowColor = this.color;
+            }
+            ctx.restore();
         }
+    }
+    
+    function targetGlowSize(size) {
+        return size * 4;
     }
 
     function initParticles() {
         particlesArray = [];
-        const numberOfParticles = 50; // Sparse, magical feel
+        const numberOfParticles = 200; // Deep space density
         for (let i = 0; i < numberOfParticles; i++) {
             particlesArray.push(new Particle());
         }

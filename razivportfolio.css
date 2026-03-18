@@ -1,14 +1,14 @@
 
 :root {
-    --primary-color: #00bbf9; /* Sky Blue */
-    --secondary-color: #ff9f1c; /* Orange */
-    --accent-color: #00f5d4; /* Light Green */
-    --background: #0b0f19;
+    --primary-color: #7df9ff; /* Electric Cyan */
+    --secondary-color: #b026ff; /* Neon Purple */
+    --accent-color: #ffea00; /* Star Yellow */
+    --background: #040014; /* Deep Space Black-Purple */
     --text-color: #ffffff;
     --text-muted: #a0aec0;
-    --card-bg: rgba(16, 23, 42, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --nav-bg: rgba(11, 15, 25, 0.95);
+    --card-bg: rgba(12, 10, 32, 0.85); /* Dark space glass */
+    --glass-border: rgba(125, 249, 255, 0.15); /* faint neon cyan border */
+    --nav-bg: rgba(4, 0, 20, 0.95);
 
     --font-heading: 'Quicksand', sans-serif;
     --font-body: 'Quicksand', sans-serif;
@@ -16,8 +16,8 @@
     --transition-fast: 0.3s ease;
     --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    --sky-gradient: repeating-linear-gradient(45deg, #0b0f19 0, #0b0f19 2px, #0f1523 2px, #0f1523 4px);
-    --cloud-color: rgba(255,255,255, 0.02);
+    --sky-gradient: radial-gradient(circle at center, #110e2c 0%, #040014 100%);
+    --cloud-color: transparent;
 }
 
 * {
@@ -49,7 +49,7 @@ body {
     pointer-events: none;
 }
 
-/* Clouds Animation */
+/* Nebula Animation Effect */
 .clouds {
     position: fixed;
     top: 0;
@@ -57,10 +57,9 @@ body {
     width: 100%;
     height: 100%;
     z-index: -2;
-    background: transparent url('https://raw.githubusercontent.com/saksham-google/ghibli-cloud-demo/main/clouds.png') repeat-x bottom;
-    background-size: cover;
-    animation: moveClouds 60s linear infinite;
-    opacity: 0.6;
+    background: radial-gradient(circle at 30% 70%, rgba(176, 38, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(125, 249, 255, 0.05) 0%, transparent 40%);
+    opacity: 0.8;
 }
 
 @keyframes moveClouds {
@@ -737,17 +736,17 @@ footer {
 
 /* Theme Toggle & Light Mode */
 :root.light-mode, body.light-mode {
-    --primary-color: #0077b6; /* darker sky blue for contrast */
-    --secondary-color: #f77f00; /* deeper orange */
-    --accent-color: #00b4d8; 
-    --background: #f8f9fa;
-    --text-color: #212529;
-    --text-muted: #6c757d;
-    --card-bg: rgba(255, 255, 255, 0.95);
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --nav-bg: rgba(248, 249, 250, 0.98);
-    --sky-gradient: repeating-linear-gradient(45deg, #f8f9fa 0, #f8f9fa 2px, #e9ecef 2px, #e9ecef 4px);
-    --cloud-color: rgba(0, 0, 0, 0.03);
+    --primary-color: #1e3a8a; /* space blue */
+    --secondary-color: #ea580c; /* sun orange */
+    --accent-color: #0284c7; 
+    --background: #f0f8ff; /* bright sky */
+    --text-color: #0f172a;
+    --text-muted: #475569;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(240, 248, 255, 0.95);
+    --sky-gradient: radial-gradient(circle at top right, #e0f2fe 0%, #f0f8ff 100%);
+    --cloud-color: transparent;
 }
 
 .theme-toggle-btn {
