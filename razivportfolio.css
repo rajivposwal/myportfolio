@@ -518,6 +518,96 @@ section {
     box-shadow: 0 6px 15px rgba(255, 159, 28, 0.4);
 }
 
+/* ── Certificates Section ── */
+.certificates-section {
+    padding: 6rem 0;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+.cert-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem 2rem 2rem 1.8rem;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.4s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+    border-left-color: var(--accent-color);
+    box-shadow: 0 12px 40px rgba(125, 249, 255, 0.15);
+}
+
+.cert-icon {
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    background: rgba(125, 249, 255, 0.08);
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 0 15px rgba(125, 249, 255, 0.2);
+}
+
+.cert-body h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-bottom: 0.4rem;
+}
+
+.cert-issuer {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cert-desc {
+    font-size: 0.97rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+}
+
+.cert-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1.3rem;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+    box-shadow: none;
+}
+
+.cert-btn:hover {
+    background: var(--primary-color);
+    color: var(--background);
+    box-shadow: 0 0 20px rgba(125, 249, 255, 0.35);
+}
+
+@media (max-width: 768px) {
+    .certs-grid {
+        grid-template-columns: 1fr;
+    }
+    .cert-card {
+        flex-direction: column;
+    }
+}
+
 /* Contact */
 .contact-section {
     background: var(--card-bg);
