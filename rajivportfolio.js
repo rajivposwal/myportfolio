@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================
     /* =========================================
-       4. Cosmic Starfield (Replacing Fireflies)
+       4. Universal Data Network
        ========================================= */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
@@ -90,57 +90,53 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2.5; // Star size
-            this.speedX = (Math.random() - 0.5) * 0.3; // Tiny drift
-            this.speedY = (Math.random() - 0.5) * 0.3;
-            // Space star colors: Deep blue, bright white, faint yellow, cyan
-            const colors = ['#ffffff', '#e0f7fa', '#caf0f8', '#ffea00', '#d8b4e2'];
-            this.color = colors[Math.floor(Math.random() * colors.length)];
-            this.opacity = Math.random() * 0.8 + 0.2; // Twinkle baseline
-            this.twinkleSpeed = Math.random() * 0.02 + 0.005;
+            this.size = Math.random() * 2 + 1; // Node size
+            this.speedX = (Math.random() - 0.5) * 0.5; 
+            this.speedY = (Math.random() - 0.5) * 0.5;
+            this.color = '#3b82f6'; // Universal blue nodes
         }
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
 
-            // Twinkle effect
-            this.opacity -= this.twinkleSpeed;
-            if (this.opacity <= 0.1 || this.opacity >= 1) {
-                this.twinkleSpeed *= -1; // Reverse fade
-            }
-
-            // Cosmos endless wrap around
-            if (this.x > canvas.width) this.x = 0;
-            else if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            else if (this.y < 0) this.y = canvas.height;
+            // Bounce off edges
+            if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+            if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
         }
         draw() {
-            ctx.save();
-            ctx.globalAlpha = this.opacity;
+            ctx.globalAlpha = 1;
             ctx.fillStyle = this.color;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Core glow for bigger stars
-            if (this.size > 1.5) {
-                ctx.shadowBlur = targetGlowSize(this.size);
-                ctx.shadowColor = this.color;
-            }
-            ctx.restore();
         }
-    }
-    
-    function targetGlowSize(size) {
-        return size * 4;
     }
 
     function initParticles() {
         particlesArray = [];
-        const numberOfParticles = 200; // Deep space density
+        let numberOfParticles = (canvas.height * canvas.width) / 10000;
+        if (numberOfParticles > 120) numberOfParticles = 120; // Cap to avoid lag
         for (let i = 0; i < numberOfParticles; i++) {
             particlesArray.push(new Particle());
+        }
+    }
+
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+                    ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                if (distance < 12000) {
+                    opacityValue = 1 - (distance / 12000);
+                    ctx.strokeStyle = 'rgba(59, 130, 246,' + opacityValue + ')';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
         }
     }
 
@@ -150,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             particlesArray[i].update();
             particlesArray[i].draw();
         }
+        connect();
         requestAnimationFrame(animateParticles);
     }
 

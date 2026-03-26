@@ -1,14 +1,14 @@
 
 :root {
-    --primary-color: #7df9ff; /* Electric Cyan */
-    --secondary-color: #b026ff; /* Neon Purple */
-    --accent-color: #ffea00; /* Star Yellow */
-    --background: #040014; /* Deep Space Black-Purple */
-    --text-color: #ffffff;
-    --text-muted: #a0aec0;
-    --card-bg: rgba(12, 10, 32, 0.85); /* Dark space glass */
-    --glass-border: rgba(125, 249, 255, 0.15); /* faint neon cyan border */
-    --nav-bg: rgba(4, 0, 20, 0.95);
+    --primary-color: #3b82f6; /* Universal Blue */
+    --secondary-color: #8b5cf6; /* Universal Violet */
+    --accent-color: #06b6d4; /* Universal Cyan */
+    --background: #0f172a; /* Slate Deep Space */
+    --text-color: #f8fafc; /* Slate 50 */
+    --text-muted: #94a3b8; /* Slate 400 */
+    --card-bg: rgba(30, 41, 59, 0.75); /* Slate 800 glass */
+    --glass-border: rgba(59, 130, 246, 0.2); /* Faint blue border */
+    --nav-bg: rgba(15, 23, 42, 0.95);
 
     --font-heading: 'Quicksand', sans-serif;
     --font-body: 'Quicksand', sans-serif;
@@ -16,8 +16,8 @@
     --transition-fast: 0.3s ease;
     --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    --sky-gradient: transparent; /* Letting the cosmic bg shine */
-    --cloud-bg: url('cosmic_bg.png') no-repeat center center;
+    --sky-gradient: radial-gradient(circle at top left, #1e293b 0%, #0f172a 50%, #020617 100%);
+    --cloud-bg: none;
 }
 
 * {
