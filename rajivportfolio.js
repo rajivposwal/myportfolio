@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.size = Math.random() * 2 + 1; // Node size
             this.speedX = (Math.random() - 0.5) * 0.5; 
             this.speedY = (Math.random() - 0.5) * 0.5;
-            this.color = '#3b82f6'; // Universal blue nodes
+            this.color = '#f97316'; // Universal orange nodes
         }
         update() {
             this.x += this.speedX;
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
                 if (distance < 12000) {
                     opacityValue = 1 - (distance / 12000);
-                    ctx.strokeStyle = 'rgba(59, 130, 246,' + opacityValue + ')';
+                    ctx.strokeStyle = 'rgba(249, 115, 22,' + opacityValue + ')';
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[a].x, particlesArray[a].y);

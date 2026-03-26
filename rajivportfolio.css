@@ -1,13 +1,13 @@
 
 :root {
-    --primary-color: #3b82f6; /* Universal Blue */
-    --secondary-color: #8b5cf6; /* Universal Violet */
-    --accent-color: #06b6d4; /* Universal Cyan */
+    --primary-color: #f97316; /* Universal Orange */
+    --secondary-color: #ea580c; /* Deep Orange */
+    --accent-color: #fb923c; /* Light Accent Orange */
     --background: #0f172a; /* Slate Deep Space */
     --text-color: #f8fafc; /* Slate 50 */
     --text-muted: #94a3b8; /* Slate 400 */
     --card-bg: rgba(30, 41, 59, 0.75); /* Slate 800 glass */
-    --glass-border: rgba(59, 130, 246, 0.2); /* Faint blue border */
+    --glass-border: rgba(249, 115, 22, 0.2); /* Faint orange border */
     --nav-bg: rgba(15, 23, 42, 0.95);
 
     --font-heading: 'Quicksand', sans-serif;
