@@ -3,12 +3,12 @@
     --primary-color: #f97316; /* Universal Orange */
     --secondary-color: #ea580c; /* Deep Orange */
     --accent-color: #fb923c; /* Light Accent Orange */
-    --background: #0f172a; /* Slate Deep Space */
+    --background: #000000; /* Infinite Void */
     --text-color: #f8fafc; /* Slate 50 */
-    --text-muted: #94a3b8; /* Slate 400 */
-    --card-bg: rgba(30, 41, 59, 0.75); /* Slate 800 glass */
-    --glass-border: rgba(249, 115, 22, 0.2); /* Faint orange border */
-    --nav-bg: rgba(15, 23, 42, 0.95);
+    --text-muted: #a1a1aa; /* Zinc 400 */
+    --card-bg: rgba(10, 10, 12, 0.75); /* Dark Glass */
+    --glass-border: rgba(249, 115, 22, 0.3); /* Glowing orange border */
+    --nav-bg: rgba(0, 0, 0, 0.90);
 
     --font-heading: 'Quicksand', sans-serif;
     --font-body: 'Quicksand', sans-serif;
@@ -16,7 +16,7 @@
     --transition-fast: 0.3s ease;
     --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    --sky-gradient: radial-gradient(circle at top left, #1e293b 0%, #0f172a 50%, #020617 100%);
+    --sky-gradient: radial-gradient(circle at center, #111111 0%, #000000 80%, #000000 100%);
     --cloud-bg: none;
 }
 

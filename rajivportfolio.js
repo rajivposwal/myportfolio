@@ -70,88 +70,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================
     /* =========================================
-       4. Universal Data Network
+       4. Infinity Cube (Rotating Hypercube)
        ========================================= */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
-    let particlesArray;
-
+    
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
-    window.addEventListener('resize', () => {
-        resizeCanvas();
-        initParticles();
-    });
+    window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1; // Node size
-            this.speedX = (Math.random() - 0.5) * 0.5; 
-            this.speedY = (Math.random() - 0.5) * 0.5;
-            this.color = '#f97316'; // Universal orange nodes
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
+    // 4D Tesseract vertices
+    const points = [];
+    for (let i = 0; i < 16; i++) {
+        points.push([
+            (i & 1) ? 1 : -1,
+            (i & 2) ? 1 : -1,
+            (i & 4) ? 1 : -1,
+            (i & 8) ? 1 : -1
+        ]);
+    }
 
-            // Bounce off edges
-            if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-            if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
-        }
-        draw() {
-            ctx.globalAlpha = 1;
-            ctx.fillStyle = this.color;
+    let angle = 0;
+
+    function drawInfinityCube() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        const scale = Math.min(canvas.width, canvas.height) / 5;
+        
+        ctx.strokeStyle = 'rgba(249, 115, 22, 0.4)'; // Orange glow lines
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#f97316';
+        ctx.fillStyle = '#fca5a5'; // Bright orange core points
+        
+        angle += 0.005; // Slow ambient rotation
+        
+        const projected2D = [];
+        
+        for (let i = 0; i < points.length; i++) {
+            let p = points[i];
+            
+            // XW Rotation
+            let x0 = p[0] * Math.cos(angle) - p[3] * Math.sin(angle);
+            let w0 = p[0] * Math.sin(angle) + p[3] * Math.cos(angle);
+            let y0 = p[1];
+            let z0 = p[2];
+            
+            // YZ Rotation
+            let y1 = y0 * Math.cos(angle*0.8) - z0 * Math.sin(angle*0.8);
+            let z1 = y0 * Math.sin(angle*0.8) + z0 * Math.cos(angle*0.8);
+            let x1 = x0;
+            let w1 = w0;
+            
+            // ZW Rotation
+            let z2 = z1 * Math.cos(angle*0.5) - w1 * Math.sin(angle*0.5);
+            let w2 = z1 * Math.sin(angle*0.5) + w1 * Math.cos(angle*0.5);
+            let x2 = x1;
+            let y2 = y1;
+            
+            // 4D to 3D Projection
+            let d4 = 3.5;
+            let w_proj = 1 / (d4 - w2);
+            
+            let x3 = x2 * w_proj;
+            let y3 = y2 * w_proj;
+            let z3 = z2 * w_proj;
+            
+            // 3D to 2D Projection
+            let d3 = 3;
+            let z_proj = 1 / (d3 - z3);
+            
+            let px = x3 * z_proj * scale + cx;
+            let py = y3 * z_proj * scale + cy;
+            
+            projected2D.push([px, py]);
+            
+            // Draw Vertex
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.arc(px, py, 2.5, 0, Math.PI * 2);
             ctx.fill();
         }
-    }
-
-    function initParticles() {
-        particlesArray = [];
-        let numberOfParticles = (canvas.height * canvas.width) / 10000;
-        if (numberOfParticles > 120) numberOfParticles = 120; // Cap to avoid lag
-        for (let i = 0; i < numberOfParticles; i++) {
-            particlesArray.push(new Particle());
-        }
-    }
-
-    function connect() {
-        let opacityValue = 1;
-        for (let a = 0; a < particlesArray.length; a++) {
-            for (let b = a; b < particlesArray.length; b++) {
-                let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
-                    ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-                if (distance < 12000) {
-                    opacityValue = 1 - (distance / 12000);
-                    ctx.strokeStyle = 'rgba(249, 115, 22,' + opacityValue + ')';
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                    ctx.stroke();
+        
+        // Connect the 32 edges of the hypercube
+        ctx.beginPath();
+        for (let i = 0; i < 16; i++) {
+            for (let j = 0; j < 4; j++) {
+                let neighbor = i ^ (1 << j);
+                if (i < neighbor) {
+                    ctx.moveTo(projected2D[i][0], projected2D[i][1]);
+                    ctx.lineTo(projected2D[neighbor][0], projected2D[neighbor][1]);
                 }
             }
         }
+        ctx.stroke();
+        
+        requestAnimationFrame(drawInfinityCube);
     }
-
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particlesArray.length; i++) {
-            particlesArray[i].update();
-            particlesArray[i].draw();
-        }
-        connect();
-        requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
+    
+    drawInfinityCube();
 
 
     /* =========================================
