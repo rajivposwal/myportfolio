@@ -4,56 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajiv | Data Science Engineer</title>
+    <title>Rajiv Poswal | Data Science Engineer</title>
+    <meta name="description" content="Rajiv Poswal — Data Science Engineer specializing in Machine Learning, Python, and web development. View projects, resume, and contact info.">
     <link rel="stylesheet" href="rajivportfolio.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500;700&display=swap"
-        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
 
-
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
 
     <header>
         <nav class="navbar">
-            <div class="logo">Rajiv<span class="highlight">.</span></div>
-            <ul class="nav-links">
+            <div class="logo">Rajiv<span>.</span></div>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
+                <li><a href="#experience">What I Do</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#cv">Resume</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme"><i class="fas fa-sun"></i></button></li>
             </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
     <main>
+        <!-- ── Hero ── -->
         <section id="home" class="hero-section">
             <div class="hero-content">
                 <div class="hero-text">
                     <span class="greeting">Hello, I'm</span>
                     <h1 class="name">Rajiv Poswal</h1>
                     <h2 class="role">I am a <span class="typing-text">Data Science Engineer</span></h2>
-                    <p class="tagline">Providing insights from data, building neural networks, and creating
-                        sophisticated web solutions.</p>
+                    <p class="tagline">Providing insights from data, building neural networks, and creating sophisticated web solutions.</p>
 
                     <div class="social-links">
-                        <a href="https://github.com/rajivposwal" target="_blank" class="social-btn github magnetic-btn">
+                        <a href="https://github.com/rajivposwal" target="_blank" class="social-btn github">
                             <i class="fab fa-github"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/rajivposla489" target="_blank"
-                            class="social-btn linkedin magnetic-btn">
+                        <a href="https://www.linkedin.com/in/rajivposla489" target="_blank" class="social-btn linkedin">
                             <i class="fab fa-linkedin-in"></i>
                             <span>LinkedIn</span>
                         </a>
@@ -61,15 +62,10 @@
                 </div>
 
                 <div class="hero-image-container">
-                    <div class="infinity-cube-wrapper">
-                        <div class="infinity-cube">
-                            <div class="cube-face front"><img src="profile.jpg" alt="Rajiv"></div>
-                            <div class="cube-face back"><img src="profile.jpg" alt="Rajiv"></div>
-                            <div class="cube-face right"><img src="profile.jpg" alt="Rajiv"></div>
-                            <div class="cube-face left"><img src="profile.jpg" alt="Rajiv"></div>
-                            <div class="cube-face top"></div>
-                            <div class="cube-face bottom"></div>
-                        </div>
+                    <div class="profile-wrapper">
+                        <div class="glow-orb orb-1"></div>
+                        <div class="glow-orb orb-2"></div>
+                        <img src="profile.jpg" alt="Rajiv Poswal" class="profile-img">
                     </div>
                 </div>
             </div>
@@ -80,23 +76,21 @@
             </div>
         </section>
 
-        <section id="about" class="about-section glass-panel">
+        <!-- ── About ── -->
+        <section id="about" class="about-section">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-grid">
-                    <div class="about-text tilt-card">
-                        <p>I am a Data Science Engineer passionate about turning raw data into meaningful insights. With
-                            expertise in machine learning, Python, and web technologies, I bridge the gap between
-                            complex algorithms and intuitive user interfaces.</p>
+                    <div class="about-text reveal">
+                        <p>I am a Data Science Engineer passionate about turning raw data into meaningful insights. With expertise in machine learning, Python, and web technologies, I bridge the gap between complex algorithms and intuitive user interfaces.</p>
                         <div class="stats-container">
-
                             <div class="stat-item">
                                 <span class="stat-number">24/7</span>
                                 <span class="stat-label">Dedication</span>
                             </div>
                         </div>
                     </div>
-                    <div class="skills-wrapper tilt-card">
+                    <div class="skills-wrapper reveal">
                         <h3>Tech Stack</h3>
                         <div class="skill-tags">
                             <span class="tag">Python</span>
@@ -113,45 +107,43 @@
             </div>
         </section>
 
+        <!-- ── What I Do ── -->
         <section id="experience" class="experience-section">
             <div class="container">
                 <h2 class="section-title">What I Do</h2>
                 <div class="cards-grid">
-                    <div class="card glass-card tilt-card">
+                    <div class="card reveal">
                         <div class="card-icon"><i class="fas fa-brain"></i></div>
                         <h3>Data Science</h3>
-                        <p>Analyzing large datasets to uncover trends, build predictive models, and drive data-informed
-                            decisions.</p>
+                        <p>Analyzing large datasets to uncover trends, build predictive models, and drive data-informed decisions.</p>
                     </div>
-                    <div class="card glass-card tilt-card">
+                    <div class="card reveal">
                         <div class="card-icon"><i class="fas fa-network-wired"></i></div>
                         <h3>Machine Learning</h3>
-                        <p>Developing and deploying machine learning algorithms for automation and intelligent systems.
-                        </p>
+                        <p>Developing and deploying machine learning algorithms for automation and intelligent systems.</p>
                     </div>
-                    <div class="card glass-card tilt-card">
+                    <div class="card reveal">
                         <div class="card-icon"><i class="fas fa-code"></i></div>
                         <h3>Web Development</h3>
-                        <p>Creating responsive, data-driven web applications with modern frontend and backend
-                            technologies.</p>
+                        <p>Creating responsive, data-driven web applications with modern frontend and backend technologies.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ── Projects ── -->
         <section id="projects" class="projects-section">
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card glass-card">
+                    <div class="project-card reveal">
                         <div class="project-image">
                             <div class="tech-overlay"></div>
-                            <img src="lmstech.webp" alt="NexLib System" class="project-img">
+                            <img src="lmstech.webp" alt="NexLib Management System" class="project-img">
                         </div>
                         <div class="project-info">
                             <h3>NexLib Management System</h3>
-                            <p>A high-tech digital library platform. Features a futuristic interface, user/admin
-                                portals, automated fine calculation (₹100/week), and real-time inventory tracking.</p>
+                            <p>A high-tech digital library platform. Features a futuristic interface, user/admin portals, automated fine calculation (₹100/week), and real-time inventory tracking.</p>
                             <div class="project-links">
                                 <a href="librarymanagementsystem/" target="_blank" class="btn-link">
                                     <i class="fas fa-play"></i> Live System
@@ -160,15 +152,14 @@
                         </div>
                     </div>
 
-                    <div class="project-card glass-card">
+                    <div class="project-card reveal">
                         <div class="project-image">
                             <div class="tech-overlay"></div>
                             <img src="ticketbooking.png" alt="Global Ticket Booking System" class="project-img">
                         </div>
                         <div class="project-info">
                             <h3>Global Ticket Booking System</h3>
-                            <p>A comprehensive travel booking platform supporting Flights, Hotels, Trains, and Buses.
-                                Features real-time FlightRadar24 tracking, live geocoding, and mobile-responsive UI.</p>
+                            <p>A comprehensive travel booking platform supporting Flights, Hotels, Trains, and Buses. Features real-time FlightRadar24 tracking, live geocoding, and mobile-responsive UI.</p>
                             <div class="project-links">
                                 <a href="https://travel-universe.vercel.app" target="_blank" class="btn-link">
                                     <i class="fas fa-play"></i> Live System
@@ -176,15 +167,16 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- ── Resume / CV Section ── -->
+        <!-- ── Resume / CV ── -->
         <section id="cv" class="cv-section">
             <div class="container">
                 <h2 class="section-title">My Resume</h2>
-                <div class="cv-wrapper glass-card">
+                <div class="cv-wrapper reveal">
                     <div class="cv-left">
                         <div class="cv-icon-ring">
                             <i class="fas fa-file-pdf"></i>
@@ -212,13 +204,12 @@
             </div>
         </section>
 
-        <!-- ── Certificates Section ── -->
+        <!-- ── Certificates ── -->
         <section id="certificates" class="certificates-section">
             <div class="container">
                 <h2 class="section-title">Certifications</h2>
                 <div class="certs-grid">
-
-                    <div class="cert-card glass-card">
+                    <div class="cert-card reveal">
                         <div class="cert-icon">
                             <i class="fas fa-award"></i>
                         </div>
@@ -230,40 +221,38 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
+        <!-- ── Contact ── -->
         <section id="contact" class="contact-section footer-section">
             <div class="container">
-                <div class="contact-wrapper glass-panel">
-
-
+                <div class="contact-wrapper reveal">
+                    <h2 class="section-title" style="text-align:left; margin-bottom:2rem;">Get In Touch</h2>
                     <div class="contact-details-grid">
-                        <a href="mailto:rajivposwal489@gmail.com" class="contact-item magnetic-btn">
+                        <a href="mailto:rajivposwal489@gmail.com" class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
                                 <span>rajivposwal489@gmail.com</span>
                             </div>
                         </a>
-                        <div class="contact-item magnetic-btn">
+                        <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>Phone</h4>
                                 <span>+91 9896144387</span>
                             </div>
                         </div>
-                        <a href="https://www.linkedin.com/in/rajivposla489" target="_blank"
-                            class="contact-item magnetic-btn">
+                        <a href="https://www.linkedin.com/in/rajivposla489" target="_blank" class="contact-item">
                             <i class="fab fa-linkedin"></i>
                             <div>
                                 <h4>LinkedIn</h4>
                                 <span>/in/rajivposla489</span>
                             </div>
                         </a>
-                        <a href="https://github.com/rajivposwal" target="_blank" class="contact-item magnetic-btn">
+                        <a href="https://github.com/rajivposwal" target="_blank" class="contact-item">
                             <i class="fab fa-github"></i>
                             <div>
                                 <h4>GitHub</h4>
@@ -273,7 +262,7 @@
                     </div>
                 </div>
                 <footer>
-                    <p>&copy; 2024 Rajiv Poswal. All Rights Reserved.</p>
+                    <p>&copy; 2025 Rajiv Poswal. All Rights Reserved.</p>
                 </footer>
             </div>
         </section>

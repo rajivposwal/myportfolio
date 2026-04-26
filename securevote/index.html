@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVote | Secure Digital Voting System</title>
+    <meta name="description" content="A secure, privacy-preserving digital voting system with multi-layer identity verification, fraud detection, and real-time monitoring.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Particle Canvas Background -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-brand">
+        <div class="brand-icon"><i class="fas fa-shield-halved"></i></div>
+        <span class="brand-name">Secure<span class="accent">Vote</span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#vote" class="nav-link">Cast Vote</a></li>
+        <li><a href="#results" class="nav-link">Results</a></li>
+        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- ══════════ HERO SECTION ══════════ -->
+<section id="home" class="hero-section">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-lock"></i>
+            <span>Military-Grade Security Protocol</span>
+        </div>
+        <h1 class="hero-title">
+            The Future of <br>
+            <span class="gradient-text">Secure Democracy</span>
+        </h1>
+        <p class="hero-subtitle">
+            A next-generation digital voting platform using multi-layer biometric verification,
+            AI-powered fraud detection, and zero-knowledge privacy preservation.
+        </p>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-value">99.9%</div>
+                <div class="stat-label">Fraud Detection Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">256-bit</div>
+                <div class="stat-label">AES Encryption</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Zero</div>
+                <div class="stat-label">Data Stored Post-Vote</div>
+            </div>
+        </div>
+        <div class="hero-actions">
+            <a href="#vote" class="btn-primary">
+                <i class="fas fa-vote-yea"></i>
+                Cast Your Vote
+            </a>
+            <a href="#how-it-works" class="btn-secondary">
+                <i class="fas fa-play-circle"></i>
+                How It Works
+            </a>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="shield-container">
+            <div class="shield-ring ring-1"></div>
+            <div class="shield-ring ring-2"></div>
+            <div class="shield-ring ring-3"></div>
+            <div class="shield-core">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <div class="orbit-dot dot-1"><i class="fas fa-fingerprint"></i></div>
+            <div class="orbit-dot dot-2"><i class="fas fa-id-card"></i></div>
+            <div class="orbit-dot dot-3"><i class="fas fa-eye"></i></div>
+            <div class="orbit-dot dot-4"><i class="fas fa-mobile-alt"></i></div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<section id="how-it-works" class="hiw-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Security Architecture</span>
+            <h2 class="section-title">How SecureVote Works</h2>
+            <p class="section-subtitle">A 5-layer verification pipeline that ensures only authenticated, eligible voters can participate.</p>
+        </div>
+        <div class="pipeline-grid">
+            <div class="pipeline-step reveal" data-step="1">
+                <div class="step-icon-wrap">
+                    <div class="step-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="step-num">01</div>
+                </div>
+                <h3>Voter Registration</h3>
+                <p>Voters register with government ID and biometric data. The system assigns a unique cryptographic identity reference.</p>
+                <div class="step-tags">
+                    <span>KYC</span><span>Aadhar/ID</span><span>Biometric</span>
+                </div>
+            </div>
+            <div class="pipeline-connector"><div class="connector-line"></div></div>
+            <div class="pipeline-step reveal" data-step="2">
+                <div class="step-icon-wrap">
+                    <div class="step-icon"><i class="fas fa-camera"></i></div>
+                    <div class="step-num">02</div>
+                </div>
+                <h3>Live Biometric Check</h3>
+                <p>Real-time facial recognition with liveness detection (blinking, head motion) prevents deepfake and spoofing attacks.</p>
+                <div class="step-tags">
+                    <span>Liveness</span><span>FaceID</span><span>Anti-Spoof</span>
+                </div>
+            </div>
+            <div class="pipeline-connector"><div class="connector-line"></div></div>
+            <div class="pipeline-step reveal" data-step="3">
+                <div class="step-icon-wrap">
+                    <div class="step-icon"><i class="fas fa-id-card"></i></div>
+                    <div class="step-num">03</div>
+                </div>
+                <h3>Session ID Validation</h3>
+                <p>Per-session government ID upload is cross-validated against live image. No permanent storage of sensitive documents.</p>
+                <div class="step-tags">
+                    <span>OCR</span><span>Session-based</span><span>Encrypted</span>
+                </div>
+            </div>
+            <div class="pipeline-connector"><div class="connector-line"></div></div>
+            <div class="pipeline-step reveal" data-step="4">
+                <div class="step-icon-wrap">
+                    <div class="step-icon"><i class="fas fa-brain"></i></div>
+                    <div class="step-num">04</div>
+                </div>
+                <h3>Trust Score Engine</h3>
+                <p>AI computes a composite trust score from facial match, behavioral analysis, device fingerprint, and location consistency.</p>
+                <div class="step-tags">
+                    <span>AI/ML</span><span>Behavioral</span><span>Trust Score</span>
+                </div>
+            </div>
+            <div class="pipeline-connector"><div class="connector-line"></div></div>
+            <div class="pipeline-step reveal" data-step="5">
+                <div class="step-icon-wrap">
+                    <div class="step-icon"><i class="fas fa-ballot-check"></i></div>
+                    <div class="step-num">05</div>
+                </div>
+                <h3>Anonymous Vote Cast</h3>
+                <p>Vote is anonymized, encrypted, and submitted. All biometric data is securely purged immediately after submission.</p>
+                <div class="step-tags">
+                    <span>Anonymous</span><span>Encrypted</span><span>Finalized</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════ SECURITY FEATURES ══════════ -->
+<section class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Protection Layers</span>
+            <h2 class="section-title">Security at Every Layer</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-fingerprint"></i></div>
+                <h3>Biometric Verification</h3>
+                <p>Live facial recognition with liveness detection ensures the voter is physically present and not a spoofed image or video.</p>
+                <div class="feature-status active"><span></span> Active Protection</div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-keyboard"></i></div>
+                <h3>Behavioral Analysis</h3>
+                <p>Keystroke dynamics, touch patterns, and navigation behavior are analyzed to distinguish humans from bots and fake profiles.</p>
+                <div class="feature-status active"><span></span> AI Monitoring</div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-laptop"></i></div>
+                <h3>Device Fingerprinting</h3>
+                <p>Device OS, browser, network characteristics are captured to detect suspicious activity and prevent multi-device abuse.</p>
+                <div class="feature-status active"><span></span> Device Scanned</div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Location Audit Log</h3>
+                <p>Approximate geolocation is encrypted and stored for audit purposes only. Precise location is never stored or shared.</p>
+                <div class="feature-status active"><span></span> Audit Enabled</div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-user-secret"></i></div>
+                <h3>Zero-Knowledge Privacy</h3>
+                <p>Vote is separated from identity post-submission. Raw biometric and ID data is cryptographically purged immediately.</p>
+                <div class="feature-status active"><span></span> Privacy Preserved</div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <h3>Real-Time Fraud Detection</h3>
+                <p>Duplicate attempt detection, multi-account linking, and anomaly flagging prevents any form of electoral manipulation.</p>
+                <div class="feature-status active"><span></span> Fraud Guard On</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════ VOTING FLOW (Interactive) ══════════ -->
+<section id="vote" class="vote-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Cast Your Vote</span>
+            <h2 class="section-title">Secure Voting Portal</h2>
+            <p class="section-subtitle">Complete all verification layers to cast your anonymous vote.</p>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="vote-progress" id="voteProgress">
+            <div class="progress-step active" id="pstep-1" data-t="Registration">
+                <div class="ps-circle"><i class="fas fa-user"></i></div>
+                <span>Register</span>
+            </div>
+            <div class="progress-line" id="pline-1"></div>
+            <div class="progress-step" id="pstep-2" data-t="Biometrics">
+                <div class="ps-circle"><i class="fas fa-camera"></i></div>
+                <span>Biometrics</span>
+            </div>
+            <div class="progress-line" id="pline-2"></div>
+            <div class="progress-step" id="pstep-3" data-t="ID Verify">
+                <div class="ps-circle"><i class="fas fa-id-card"></i></div>
+                <span>ID Verify</span>
+            </div>
+            <div class="progress-line" id="pline-3"></div>
+            <div class="progress-step" id="pstep-4" data-t="Trust Score">
+                <div class="ps-circle"><i class="fas fa-shield-check"></i></div>
+                <span>Trust Score</span>
+            </div>
+            <div class="progress-line" id="pline-4"></div>
+            <div class="progress-step" id="pstep-5" data-t="Vote">
+                <div class="ps-circle"><i class="fas fa-vote-yea"></i></div>
+                <span>Vote</span>
+            </div>
+        </div>
+
+        <!-- STEP 1: Registration -->
+        <div class="vote-panel active" id="step-1">
+            <div class="panel-icon"><i class="fas fa-user-plus"></i></div>
+            <h3>Voter Registration</h3>
+            <p class="panel-desc">Enter your details to begin the identity verification process. All data is encrypted in transit.</p>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="voterName">Full Name (as on Govt. ID)</label>
+                    <div class="input-wrap"><i class="fas fa-user"></i><input type="text" id="voterName" placeholder="e.g. Rajiv Poswal" autocomplete="off"></div>
+                </div>
+                <div class="form-group">
+                    <label for="voterId">Voter ID / Aadhaar Number</label>
+                    <div class="input-wrap"><i class="fas fa-id-badge"></i><input type="text" id="voterId" placeholder="XXXX-XXXX-XXXX" autocomplete="off"></div>
+                </div>
+                <div class="form-group">
+                    <label for="voterPhone">Registered Phone (for OTP)</label>
+                    <div class="input-wrap"><i class="fas fa-mobile-alt"></i><input type="tel" id="voterPhone" placeholder="+91 98765 43210"></div>
+                </div>
+                <div class="form-group">
+                    <label for="voterDob">Date of Birth</label>
+                    <div class="input-wrap"><i class="fas fa-calendar"></i><input type="date" id="voterDob"></div>
+                </div>
+            </div>
+            <div class="otp-section" id="otpSection" style="display:none;">
+                <label>Enter OTP sent to your phone</label>
+                <div class="otp-inputs">
+                    <input type="text" maxlength="1" class="otp-box" id="otp1">
+                    <input type="text" maxlength="1" class="otp-box" id="otp2">
+                    <input type="text" maxlength="1" class="otp-box" id="otp3">
+                    <input type="text" maxlength="1" class="otp-box" id="otp4">
+                    <input type="text" maxlength="1" class="otp-box" id="otp5">
+                    <input type="text" maxlength="1" class="otp-box" id="otp6">
+                </div>
+                <div class="otp-hint">Demo OTP: <strong>4 8 2 9 1 7</strong></div>
+            </div>
+            <div class="panel-actions">
+                <button class="btn-primary" id="sendOtpBtn" onclick="sendOtp()">
+                    <i class="fas fa-paper-plane"></i> Send OTP
+                </button>
+                <button class="btn-primary" id="verifyOtpBtn" style="display:none;" onclick="verifyOtp()">
+                    <i class="fas fa-check-circle"></i> Verify & Continue
+                </button>
+            </div>
+            <div class="security-note"><i class="fas fa-lock"></i> Your information is encrypted with AES-256 and not stored after session.</div>
+        </div>
+
+        <!-- STEP 2: Biometric -->
+        <div class="vote-panel" id="step-2">
+            <div class="panel-icon"><i class="fas fa-camera"></i></div>
+            <h3>Live Facial Verification</h3>
+            <p class="panel-desc">Position your face in the frame. Our AI will perform liveness detection to prevent spoofing.</p>
+            <div class="camera-container">
+                <div class="camera-frame">
+                    <div class="camera-corner tl"></div>
+                    <div class="camera-corner tr"></div>
+                    <div class="camera-corner bl"></div>
+                    <div class="camera-corner br"></div>
+                    <div class="face-guide"></div>
+                    <div class="scan-line" id="scanLine"></div>
+                    <div class="camera-status" id="cameraStatus">Initializing camera...</div>
+                    <video id="videoFeed" autoplay muted playsinline style="display:none;"></video>
+                    <canvas id="faceCanvas" style="display:none;"></canvas>
+                    <div class="camera-overlay" id="cameraOverlay">
+                        <i class="fas fa-camera fa-3x"></i>
+                        <p>Camera not active</p>
+                    </div>
+                </div>
+                <div class="liveness-checks">
+                    <h4>Liveness Detection</h4>
+                    <div class="liveness-item" id="lCheck1">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        <span>Waiting — Blink your eyes</span>
+                    </div>
+                    <div class="liveness-item" id="lCheck2">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        <span>Waiting — Turn head left</span>
+                    </div>
+                    <div class="liveness-item" id="lCheck3">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        <span>Waiting — Smile naturally</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-actions">
+                <button class="btn-primary" id="startCameraBtn" onclick="startCamera()">
+                    <i class="fas fa-camera"></i> Start Camera
+                </button>
+                <button class="btn-primary" id="captureBtn" style="display:none;" onclick="captureFace()">
+                    <i class="fas fa-circle"></i> Capture & Verify
+                </button>
+            </div>
+            <div class="security-note"><i class="fas fa-eye-slash"></i> Video is processed locally. No feed is transmitted externally.</div>
+        </div>
+
+        <!-- STEP 3: ID Verification -->
+        <div class="vote-panel" id="step-3">
+            <div class="panel-icon"><i class="fas fa-id-card"></i></div>
+            <h3>Government ID Verification</h3>
+            <p class="panel-desc">Upload your government-issued ID for session-based verification. The document is securely deleted after comparison.</p>
+            <div class="id-upload-area" id="idUploadArea" onclick="document.getElementById('idFileInput').click()">
+                <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <h4>Drop your ID document here</h4>
+                <p>Supported: Aadhaar Card, Voter ID, Passport, Driving License</p>
+                <div class="file-types">JPG · PNG · PDF</div>
+                <input type="file" id="idFileInput" accept="image/*,.pdf" style="display:none;" onchange="handleIdUpload(event)">
+            </div>
+            <div class="id-preview" id="idPreview" style="display:none;">
+                <div class="id-preview-inner">
+                    <img id="idPreviewImg" src="" alt="ID Preview">
+                    <div class="id-scan-overlay">
+                        <div class="id-scan-beam"></div>
+                        <div class="id-scan-status" id="idScanStatus">
+                            <i class="fas fa-circle-notch fa-spin"></i> Extracting data...
+                        </div>
+                    </div>
+                </div>
+                <div class="id-extracted-data" id="idExtractedData" style="display:none;">
+                    <h4><i class="fas fa-check-circle"></i> Data Extracted Successfully</h4>
+                    <div class="extracted-grid">
+                        <div><span>Name Match</span><strong class="match-ok">✓ Verified</strong></div>
+                        <div><span>DOB Match</span><strong class="match-ok">✓ Verified</strong></div>
+                        <div><span>ID Number</span><strong class="match-ok">✓ Confirmed</strong></div>
+                        <div><span>Face Match</span><strong class="match-ok">✓ 96.7% Match</strong></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-actions">
+                <button class="btn-primary" id="idVerifyBtn" style="display:none;" onclick="proceedFromIdVerify()">
+                    <i class="fas fa-arrow-right"></i> Continue to Trust Score
+                </button>
+            </div>
+            <div class="security-note"><i class="fas fa-trash-alt"></i> Document is purged from server memory immediately after comparison.</div>
+        </div>
+
+        <!-- STEP 4: Trust Score -->
+        <div class="vote-panel" id="step-4">
+            <div class="panel-icon"><i class="fas fa-brain"></i></div>
+            <h3>Trust Score Analysis</h3>
+            <p class="panel-desc">Our AI engine is computing your composite trust score based on all verification signals.</p>
+            <div class="trust-container">
+                <div class="trust-gauge-wrap">
+                    <div class="trust-gauge" id="trustGauge">
+                        <svg viewBox="0 0 200 200" class="gauge-svg">
+                            <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="16"/>
+                            <circle cx="100" cy="100" r="80" fill="none" stroke="url(#gaugeGrad)" stroke-width="16"
+                                stroke-dasharray="502" stroke-dashoffset="502" stroke-linecap="round"
+                                id="gaugeCircle" transform="rotate(-90 100 100)"/>
+                            <defs>
+                                <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#06b6d4"/>
+                                    <stop offset="100%" style="stop-color:#7c3aed"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="trust-score-display">
+                            <span class="trust-value" id="trustValue">0</span>
+                            <span class="trust-pct">%</span>
+                            <span class="trust-label-g">Trust Score</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trust-breakdown">
+                    <h4>Verification Signals</h4>
+                    <div class="trust-item" id="ts-face">
+                        <div class="ti-label"><i class="fas fa-camera"></i> Facial Match</div>
+                        <div class="ti-bar"><div class="ti-fill" style="width:0%" data-target="96"></div></div>
+                        <div class="ti-val">96%</div>
+                    </div>
+                    <div class="trust-item" id="ts-id">
+                        <div class="ti-label"><i class="fas fa-id-card"></i> ID Verification</div>
+                        <div class="ti-bar"><div class="ti-fill" style="width:0%" data-target="100"></div></div>
+                        <div class="ti-val">100%</div>
+                    </div>
+                    <div class="trust-item" id="ts-behav">
+                        <div class="ti-label"><i class="fas fa-keyboard"></i> Behavioral Score</div>
+                        <div class="ti-bar"><div class="ti-fill" style="width:0%" data-target="88"></div></div>
+                        <div class="ti-val">88%</div>
+                    </div>
+                    <div class="trust-item" id="ts-device">
+                        <div class="ti-label"><i class="fas fa-laptop"></i> Device Authenticity</div>
+                        <div class="ti-bar"><div class="ti-fill" style="width:0%" data-target="94"></div></div>
+                        <div class="ti-val">94%</div>
+                    </div>
+                    <div class="trust-item" id="ts-loc">
+                        <div class="ti-label"><i class="fas fa-map-marker-alt"></i> Location Consistency</div>
+                        <div class="ti-bar"><div class="ti-fill" style="width:0%" data-target="91"></div></div>
+                        <div class="ti-val">91%</div>
+                    </div>
+                    <div class="trust-verdict" id="trustVerdict" style="display:none;">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Eligibility Confirmed</strong>
+                            <span>Trust score exceeds the 80% threshold. You are authorized to vote.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fraud-alerts" id="fraudAlerts">
+                <div class="fraud-header"><i class="fas fa-shield-alt"></i> Fraud Detection Monitor</div>
+                <div class="fraud-item ok"><i class="fas fa-check"></i> No duplicate voting attempt detected</div>
+                <div class="fraud-item ok"><i class="fas fa-check"></i> Single account per identity confirmed</div>
+                <div class="fraud-item ok"><i class="fas fa-check"></i> No VPN or proxy detected</div>
+                <div class="fraud-item ok"><i class="fas fa-check"></i> Behavioral patterns match registered profile</div>
+            </div>
+            <div class="panel-actions">
+                <button class="btn-primary" id="proceedVoteBtn" style="display:none;" onclick="goToVotingBallot()">
+                    <i class="fas fa-vote-yea"></i> Proceed to Ballot
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 5: Ballot -->
+        <div class="vote-panel" id="step-5">
+            <div class="panel-icon"><i class="fas fa-vote-yea"></i></div>
+            <h3>Official Ballot</h3>
+            <p class="panel-desc">Select your candidate. Your vote will be encrypted and anonymized before submission. This action is final and cannot be reversed.</p>
+            <div class="ballot-container">
+                <div class="ballot-header">
+                    <div class="ballot-election">General Election 2025 — Constituency: Central District</div>
+                    <div class="ballot-encrypted-tag"><i class="fas fa-lock"></i> End-to-End Encrypted</div>
+                </div>
+                <div class="candidates-list">
+                    <label class="candidate-card" for="cand1">
+                        <input type="radio" name="candidate" id="cand1" value="candidate1">
+                        <div class="cand-content">
+                            <div class="cand-avatar cand-a"><i class="fas fa-user-tie"></i></div>
+                            <div class="cand-info">
+                                <h4>Arjun Mehta</h4>
+                                <span class="cand-party">National Progress Party</span>
+                                <span class="cand-manifesto">Education · Healthcare · Infrastructure</span>
+                            </div>
+                            <div class="cand-check"><i class="fas fa-check-circle"></i></div>
+                        </div>
+                    </label>
+                    <label class="candidate-card" for="cand2">
+                        <input type="radio" name="candidate" id="cand2" value="candidate2">
+                        <div class="cand-content">
+                            <div class="cand-avatar cand-b"><i class="fas fa-user-tie"></i></div>
+                            <div class="cand-info">
+                                <h4>Priya Sharma</h4>
+                                <span class="cand-party">United Citizens Alliance</span>
+                                <span class="cand-manifesto">Employment · Environment · Transparency</span>
+                            </div>
+                            <div class="cand-check"><i class="fas fa-check-circle"></i></div>
+                        </div>
+                    </label>
+                    <label class="candidate-card" for="cand3">
+                        <input type="radio" name="candidate" id="cand3" value="candidate3">
+                        <div class="cand-content">
+                            <div class="cand-avatar cand-c"><i class="fas fa-user-tie"></i></div>
+                            <div class="cand-info">
+                                <h4>Ravi Kumar</h4>
+                                <span class="cand-party">People's Development Front</span>
+                                <span class="cand-manifesto">Agriculture · Rural Dev. · Digital India</span>
+                            </div>
+                            <div class="cand-check"><i class="fas fa-check-circle"></i></div>
+                        </div>
+                    </label>
+                    <label class="candidate-card" for="cand4">
+                        <input type="radio" name="candidate" id="cand4" value="nota">
+                        <div class="cand-content">
+                            <div class="cand-avatar cand-nota"><i class="fas fa-ban"></i></div>
+                            <div class="cand-info">
+                                <h4>NOTA</h4>
+                                <span class="cand-party">None of the Above</span>
+                                <span class="cand-manifesto">Register your right to none</span>
+                            </div>
+                            <div class="cand-check"><i class="fas fa-check-circle"></i></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="ballot-confirm" id="ballotConfirm" style="display:none;">
+                    <div class="confirm-selected">You selected: <strong id="selectedCandidateName"></strong></div>
+                    <p class="confirm-warning"><i class="fas fa-exclamation-triangle"></i> This vote is final. Once submitted, it cannot be changed or recalled. Are you sure?</p>
+                    <div class="ballot-final-actions">
+                        <button class="btn-secondary-small" onclick="cancelVote()">Change Selection</button>
+                        <button class="btn-danger" onclick="submitVote()"><i class="fas fa-paper-plane"></i> Submit My Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-actions" id="ballotActions">
+                <button class="btn-primary" id="reviewVoteBtn" onclick="reviewVote()">
+                    <i class="fas fa-eye"></i> Review & Submit Vote
+                </button>
+            </div>
+            <div class="security-note"><i class="fas fa-user-secret"></i> Your identity is anonymized before vote submission. No one can trace your vote back to you.</div>
+        </div>
+
+        <!-- STEP COMPLETE -->
+        <div class="vote-panel" id="step-complete">
+            <div class="success-container">
+                <div class="success-ring">
+                    <div class="success-icon"><i class="fas fa-check"></i></div>
+                </div>
+                <h2>Vote Successfully Cast!</h2>
+                <p>Your encrypted, anonymous vote has been recorded in the blockchain ledger. All biometric data has been securely purged.</p>
+                <div class="vote-receipt">
+                    <div class="receipt-header"><i class="fas fa-receipt"></i> Vote Receipt</div>
+                    <div class="receipt-row"><span>Receipt ID</span><strong id="receiptId"></strong></div>
+                    <div class="receipt-row"><span>Timestamp</span><strong id="receiptTime"></strong></div>
+                    <div class="receipt-row"><span>Encryption</span><strong>AES-256-GCM</strong></div>
+                    <div class="receipt-row"><span>Biometric Data</span><strong class="purged">✓ Purged</strong></div>
+                    <div class="receipt-row"><span>ID Document</span><strong class="purged">✓ Purged</strong></div>
+                    <div class="receipt-row"><span>Vote Status</span><strong class="confirmed">✓ Confirmed</strong></div>
+                </div>
+                <div class="receipt-actions">
+                    <button class="btn-primary" onclick="viewResults()"><i class="fas fa-chart-bar"></i> View Live Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════ RESULTS DASHBOARD ══════════ -->
+<section id="results" class="results-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Live Results</span>
+            <h2 class="section-title">Election Results Dashboard</h2>
+            <p class="section-subtitle">Real-time transparent results. Filter by demographics for granular insights.</p>
+        </div>
+        <div class="results-filters">
+            <button class="filter-btn active" onclick="filterResults('all', this)">All</button>
+            <button class="filter-btn" onclick="filterResults('gender', this)">By Gender</button>
+            <button class="filter-btn" onclick="filterResults('age', this)">By Age Group</button>
+            <button class="filter-btn" onclick="filterResults('region', this)">By Region</button>
+        </div>
+        <div class="results-grid">
+            <div class="results-main">
+                <div class="results-chart-card">
+                    <h3>Vote Distribution</h3>
+                    <div class="chart-area" id="chartArea">
+                        <div class="chart-bar-group">
+                            <div class="chart-cand-label">Arjun Mehta</div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar" style="--pct: 42%; --clr: #06b6d4;">
+                                    <div class="chart-bar-fill"></div>
+                                    <span class="chart-pct">42%</span>
+                                </div>
+                            </div>
+                            <div class="chart-votes">4,218 votes</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-cand-label">Priya Sharma</div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar" style="--pct: 35%; --clr: #7c3aed;">
+                                    <div class="chart-bar-fill"></div>
+                                    <span class="chart-pct">35%</span>
+                                </div>
+                            </div>
+                            <div class="chart-votes">3,512 votes</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-cand-label">Ravi Kumar</div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar" style="--pct: 19%; --clr: #10b981;">
+                                    <div class="chart-bar-fill"></div>
+                                    <span class="chart-pct">19%</span>
+                                </div>
+                            </div>
+                            <div class="chart-votes">1,906 votes</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="chart-cand-label">NOTA</div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar" style="--pct: 4%; --clr: #f59e0b;">
+                                    <div class="chart-bar-fill"></div>
+                                    <span class="chart-pct">4%</span>
+                                </div>
+                            </div>
+                            <div class="chart-votes">401 votes</div>
+                        </div>
+                    </div>
+                    <div class="results-totals">
+                        <div class="total-item">
+                            <span class="total-label">Total Votes Cast</span>
+                            <span class="total-val">10,037</span>
+                        </div>
+                        <div class="total-item">
+                            <span class="total-label">Voter Turnout</span>
+                            <span class="total-val">74.3%</span>
+                        </div>
+                        <div class="total-item">
+                            <span class="total-label">Fraudulent Attempts Blocked</span>
+                            <span class="total-val fraud-val">23</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="results-side">
+                <div class="leading-card">
+                    <div class="leading-badge"><i class="fas fa-crown"></i> Leading</div>
+                    <div class="leading-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>Arjun Mehta</h3>
+                    <p>National Progress Party</p>
+                    <div class="leading-pct">42%</div>
+                    <div class="leading-margin">+7% over 2nd place</div>
+                </div>
+                <div class="security-metrics-card">
+                    <h4><i class="fas fa-shield-alt"></i> Security Metrics</h4>
+                    <div class="sm-item"><span>Fraud Attempts</span><strong class="red">23</strong></div>
+                    <div class="sm-item"><span>Blocked Duplicates</span><strong class="red">18</strong></div>
+                    <div class="sm-item"><span>Verified Voters</span><strong class="green">10,037</strong></div>
+                    <div class="sm-item"><span>Avg. Trust Score</span><strong class="green">92.4%</strong></div>
+                    <div class="sm-item"><span>Data Purge Rate</span><strong class="green">100%</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════ ADMIN DASHBOARD ══════════ -->
+<section id="dashboard" class="admin-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Admin Panel</span>
+            <h2 class="section-title">Election Management Dashboard</h2>
+        </div>
+        <div class="admin-grid">
+            <div class="admin-metric-card reveal">
+                <div class="am-icon" style="--clr:#06b6d4"><i class="fas fa-users"></i></div>
+                <div class="am-data">
+                    <div class="am-value" data-val="10037">0</div>
+                    <div class="am-label">Total Votes Cast</div>
+                </div>
+                <div class="am-trend up"><i class="fas fa-arrow-up"></i> 12.3%</div>
+            </div>
+            <div class="admin-metric-card reveal">
+                <div class="am-icon" style="--clr:#10b981"><i class="fas fa-check-double"></i></div>
+                <div class="am-data">
+                    <div class="am-value" data-val="10014">0</div>
+                    <div class="am-label">Verified Authentic</div>
+                </div>
+                <div class="am-trend up"><i class="fas fa-arrow-up"></i> 99.7%</div>
+            </div>
+            <div class="admin-metric-card reveal">
+                <div class="am-icon" style="--clr:#ef4444"><i class="fas fa-ban"></i></div>
+                <div class="am-data">
+                    <div class="am-value" data-val="23">0</div>
+                    <div class="am-label">Fraud Blocked</div>
+                </div>
+                <div class="am-trend down"><i class="fas fa-arrow-down"></i> Contained</div>
+            </div>
+            <div class="admin-metric-card reveal">
+                <div class="am-icon" style="--clr:#7c3aed"><i class="fas fa-percent"></i></div>
+                <div class="am-data">
+                    <div class="am-value" data-val="74">0</div>
+                    <div class="am-label">Voter Turnout %</div>
+                </div>
+                <div class="am-trend up"><i class="fas fa-arrow-up"></i> Record High</div>
+            </div>
+        </div>
+        <div class="audit-log-card reveal">
+            <div class="audit-header">
+                <h3><i class="fas fa-list-alt"></i> Live Audit Log</h3>
+                <div class="audit-live"><span></span> Live</div>
+            </div>
+            <div class="audit-log" id="auditLog">
+                <!-- Dynamically inserted -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="brand-icon"><i class="fas fa-shield-halved"></i></div>
+                <span class="brand-name">Secure<span class="accent">Vote</span></span>
+            </div>
+            <p class="footer-desc">A patent-pending secure digital voting system with multi-layer identity verification, fraud detection, and privacy-preserving architecture.</p>
+            <div class="footer-tags">
+                <span>Biometric Auth</span><span>AES-256</span><span>Zero-Knowledge</span><span>Fraud Detection</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 SecureVote System · Invention by Rajiv Poswal · All Rights Reserved</p>
+            <p class="footer-disclaimer">This is a prototype demonstration. Not intended for actual election use without regulatory compliance.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

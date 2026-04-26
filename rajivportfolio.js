@@ -1,137 +1,129 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================
-       1. Soot Sprite Cursor (Replacing Dot)
+       1. Scroll Progress Bar
        ========================================= */
-    const cursorDot = document.querySelector('.cursor-dot');
-    // If you want a soot sprite cursor, you'd add an image here and update CSS
-    // keeping it simple for now as requested by style, just basic tracking or none
-
-    /* =========================================
-       2. Soft Typing Effect (Replacing Matrix)
-       ========================================= */
-    const textElement = document.querySelector('.typing-text');
-    const roles = ["Data Science Engineer", "Creative Developer", "Problem Solver", "Dreamer"];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
-
-    function typeEffect() {
-        const currentRole = roles[roleIndex];
-
-        if (isDeleting) {
-            textElement.textContent = currentRole.substring(0, charIndex--);
-            typeSpeed = 50;
-        } else {
-            textElement.textContent = currentRole.substring(0, charIndex++);
-            typeSpeed = 150;
-        }
-
-        if (!isDeleting && charIndex === currentRole.length) {
-            isDeleting = true;
-            typeSpeed = 2000; // Pause at end
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 500;
-        }
-
-        setTimeout(typeEffect, typeSpeed);
-    }
-
-    typeEffect();
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = pct + '%';
+    }, { passive: true });
 
 
     /* =========================================
-       3. Gentle Float Animation (Replacing Tilt)
+       2. Hamburger Menu Toggle
        ========================================= */
-    // Instead of active tilt on mousemove which is very "tech", 
-    // we use CSS transitions for hover lift. 
-    // This JS adds a subtle continuous float to images/cards
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
 
-    const floatElements = document.querySelectorAll('.image-wrapper, .glass-card, .project-card');
-
-    floatElements.forEach((el, index) => {
-        el.style.animation = `float 6s ease-in-out ${index * 0.5}s infinite`;
+    hamburger?.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
     });
 
-    // Add keyframes dynamically
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = `
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-    `;
-    document.head.appendChild(styleSheet);
+    // Close nav when a link is clicked (mobile)
+    navLinks?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('open');
+        });
+    });
 
 
     /* =========================================
-       4. Canvas Background (Removed, using pure CSS 3D Infinity Cube)
+       3. Active Nav Link on Scroll
        ========================================= */
+    const sections = document.querySelectorAll('section[id]');
+    const links    = document.querySelectorAll('.nav-links li a[href^="#"]');
 
-
-    /* =========================================
-       5. Scroll Reveal (Soft Fade)
-       ========================================= */
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
-                // Count up logic
-                if (entry.target.classList.contains('stat-item')) {
-                    const counter = entry.target.querySelector('.count-up');
-                    if (counter) runCounter(counter); // Keep existing counter logic if element exists
-                }
-
-                observer.unobserve(entry.target);
+    const activateLink = () => {
+        let current = '';
+        sections.forEach(sec => {
+            const top = sec.offsetTop - 120;
+            if (window.scrollY >= top) current = sec.getAttribute('id');
+        });
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
             }
         });
-    }, observerOptions);
+    };
 
-    const animateElements = document.querySelectorAll('.hero-text, .image-wrapper, .section-title, .glass-card, .project-card, .contact-item');
+    window.addEventListener('scroll', activateLink, { passive: true });
+    activateLink();
 
-    animateElements.forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(30px)"; // Gentle rise
-        el.style.transition = "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)"; // Smooth easing
-        observer.observe(el);
-    });
-
-    function runCounter(el) {
-        const target = +el.getAttribute('data-target');
-        const increment = target / 50;
-        let current = 0;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                el.innerText = target + "+";
-                clearInterval(timer);
-            } else {
-                el.innerText = Math.ceil(current);
-            }
-        }, 30);
-    }
 
     /* =========================================
-       6. Theme Toggle (Dark / Light)
+       4. Typing Effect
+       ========================================= */
+    const textElement = document.querySelector('.typing-text');
+    if (textElement) {
+        const roles = [
+            "Data Science Engineer",
+            "Machine Learning Developer",
+            "Creative Problem Solver",
+            "Web Developer"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 120;
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                textElement.textContent = currentRole.substring(0, charIndex--);
+                typeSpeed = 55;
+            } else {
+                textElement.textContent = currentRole.substring(0, charIndex++);
+                typeSpeed = 130;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                isDeleting = true;
+                typeSpeed = 2200;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 400;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        typeEffect();
+    }
+
+
+    /* =========================================
+       5. Scroll Reveal
+       ========================================= */
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+
+    /* =========================================
+       6. Dark / Light Theme Toggle
        ========================================= */
     const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) {
         const icon = themeBtn.querySelector('i');
         const root = document.documentElement;
 
-        // Check Local Storage on load
         if (localStorage.getItem('theme') === 'light') {
             root.classList.add('light-mode');
             icon.classList.replace('fa-sun', 'fa-moon');
@@ -139,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         themeBtn.addEventListener('click', () => {
             root.classList.toggle('light-mode');
-            
+
             if (root.classList.contains('light-mode')) {
                 localStorage.setItem('theme', 'light');
                 icon.classList.replace('fa-sun', 'fa-moon');
@@ -149,4 +141,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
 });
