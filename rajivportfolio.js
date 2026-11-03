@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.querySelector('.typing-text');
     if (textElement) {
         const roles = [
-            "Data Science Engineer",
-            "Machine Learning Developer",
-            "Creative Problem Solver",
-            "Web Developer"
+            "Software Engineer",
+            "Full-Stack Developer",
+            "Data Science Enthusiast",
+            "Python Specialist"
         ];
         let roleIndex = 0;
         let charIndex = 0;

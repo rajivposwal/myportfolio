@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajiv Kumar | Data Science Engineer</title>
-    <meta name="description" content="Rajiv Kumar — Data Science Engineer specializing in Machine Learning, Python, and web development. View projects, resume, and contact info.">
+    <title>Rajiv Kumar | Software &amp; Data Science Engineer</title>
+    <meta name="description" content="Rajiv Kumar — Computer Science Engineer specializing in Software Engineering, Full Stack Web Development, Python, and Machine Learning. View featured projects and resume.">
     <link rel="stylesheet" href="rajivportfolio.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,9 +16,13 @@
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
+    <!-- Navigation Header -->
     <header>
         <nav class="navbar">
-            <div class="logo">Rajiv<span>.</span></div>
+            <a href="#home" class="logo">
+                Rajiv<span>.dev</span>
+                <span class="logo-badge">PORTFOLIO</span>
+            </a>
 
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -26,7 +30,7 @@
                 <li><a href="#experience">What I Do</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#cv">Resume</a></li>
-                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#certificates">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme"><i class="fas fa-sun"></i></button></li>
             </ul>
@@ -40,14 +44,27 @@
     </header>
 
     <main>
-        <!-- ── Hero ── -->
+        <!-- ── Hero Section ── -->
         <section id="home" class="hero-section">
             <div class="hero-content">
                 <div class="hero-text">
-                    <span class="greeting">Hello, I'm</span>
-                    <h1 class="name">Rajiv Kumar</h1>
-                    <h2 class="role">I am a <span class="typing-text">Data Science Engineer</span></h2>
-                    <p class="tagline">Providing insights from data, building neural networks, and creating sophisticated web solutions.</p>
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        Available for Full-time Roles &amp; Projects
+                    </div>
+
+                    <h1 class="name">Hi, I'm <span class="gradient-text">Rajiv Kumar</span></h1>
+                    <h2 class="role">Software Engineer &amp; <span class="typing-text">Data Science Enthusiast</span></h2>
+                    <p class="tagline">B.Tech Computer Science student at Lovely Professional University. Crafting intelligent systems, high-performance web platforms, and data-driven solutions.</p>
+
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn-primary-glow">
+                            <i class="fas fa-layer-group"></i> Explore Projects
+                        </a>
+                        <a href="resume.html" target="_blank" class="btn-secondary-outline">
+                            <i class="fas fa-file-alt"></i> View Resume
+                        </a>
+                    </div>
 
                     <div class="social-links">
                         <a href="https://github.com/rajivposwal" target="_blank" class="social-btn github">
@@ -58,14 +75,22 @@
                             <i class="fab fa-linkedin-in"></i>
                             <span>LinkedIn</span>
                         </a>
+                        <a href="mailto:rajivposwal489@gmail.com" class="social-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
                     </div>
                 </div>
 
                 <div class="hero-image-container">
                     <div class="profile-wrapper">
-                        <div class="glow-orb orb-1"></div>
-                        <div class="glow-orb orb-2"></div>
+                        <div class="floating-badge badge-top-left">
+                            <i class="fab fa-python" style="color: #38bdf8;"></i> Python &amp; Data
+                        </div>
                         <img src="profile.jpg" alt="Rajiv Kumar" class="profile-img">
+                        <div class="floating-badge badge-bottom-right">
+                            <i class="fas fa-code" style="color: #818cf8;"></i> Full Stack Web
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,31 +101,74 @@
             </div>
         </section>
 
-        <!-- ── About ── -->
+        <!-- ── Key Stats Banner ── -->
+        <div class="container">
+            <div class="stats-banner reveal">
+                <div class="stat-item">
+                    <span class="stat-number">B.Tech</span>
+                    <span class="stat-label">Computer Science &amp; Eng.</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Projects &amp; Repositories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Verified Certifications</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Top 5</span>
+                    <span class="stat-label">University Hackathon</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── About Section ── -->
         <section id="about" class="about-section">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-grid">
                     <div class="about-text reveal">
-                        <p>I am a Data Science Engineer passionate about turning raw data into meaningful insights. With expertise in machine learning, Python, and web technologies, I bridge the gap between complex algorithms and intuitive user interfaces.</p>
-                        <div class="stats-container">
-                            <div class="stat-item">
-                                <span class="stat-number">24/7</span>
-                                <span class="stat-label">Dedication</span>
+                        <h3><i class="fas fa-user-circle"></i> Background &amp; Philosophy</h3>
+                        <p>I am a Computer Science &amp; Engineering undergraduate at Lovely Professional University with a strong foundation in software engineering, full stack web development, and data science.</p>
+                        <p>I specialize in building complete end-to-end applications — from clean backend logic with Python (Flask) and relational database architecture (MySQL, SQLite) to interactive, modern user interfaces. I thrive on translating intricate problems into elegant, reliable software.</p>
+                        <p>Beyond coding, I've served as an Academic Counsellor at Nyeras.com Education Technology and Head Coordinator for LPU events, combining technical aptitude with leadership and collaborative communication.</p>
+                    </div>
+
+                    <div class="skills-wrapper reveal">
+                        <h3><i class="fas fa-laptop-code"></i> Technical Stack</h3>
+
+                        <div class="skills-category">
+                            <div class="category-label">Languages</div>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag"><i class="fas fa-database"></i> SQL</span>
+                                <span class="tag"><i class="fab fa-js-square"></i> JavaScript</span>
+                                <span class="tag"><i class="fab fa-java"></i> Java</span>
+                                <span class="tag"><i class="fab fa-html5"></i> HTML5 / CSS3</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="skills-wrapper reveal">
-                        <h3>Tech Stack</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Data Science</span>
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS3</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Git</span>
+
+                        <div class="skills-category">
+                            <div class="category-label">Frameworks &amp; Backends</div>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-server"></i> Flask</span>
+                                <span class="tag"><i class="fas fa-network-wired"></i> RESTful APIs</span>
+                                <span class="tag"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                                <span class="tag"><i class="fas fa-code-branch"></i> Jinja2</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <div class="category-label">Databases &amp; Tools</div>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-database"></i> MySQL</span>
+                                <span class="tag"><i class="fas fa-table"></i> SQLite</span>
+                                <span class="tag"><i class="fas fa-chart-bar"></i> Power BI</span>
+                                <span class="tag"><i class="fab fa-git-alt"></i> Git &amp; GitHub</span>
+                                <span class="tag"><i class="fas fa-terminal"></i> VS Code</span>
+                                <span class="tag"><i class="fas fa-book-open"></i> Jupyter Notebook</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,66 +181,86 @@
                 <h2 class="section-title">What I Do</h2>
                 <div class="cards-grid">
                     <div class="card reveal">
-                        <div class="card-icon"><i class="fas fa-brain"></i></div>
-                        <h3>Data Science</h3>
-                        <p>Analyzing large datasets to uncover trends, build predictive models, and drive data-informed decisions.</p>
-                    </div>
-                    <div class="card reveal">
-                        <div class="card-icon"><i class="fas fa-network-wired"></i></div>
-                        <h3>Machine Learning</h3>
-                        <p>Developing and deploying machine learning algorithms for automation and intelligent systems.</p>
-                    </div>
-                    <div class="card reveal">
                         <div class="card-icon"><i class="fas fa-code"></i></div>
-                        <h3>Web Development</h3>
-                        <p>Creating responsive, data-driven web applications with modern frontend and backend technologies.</p>
+                        <h3>Full-Stack Web Development</h3>
+                        <p>Architecting modular, responsive web applications utilizing Python (Flask), clean frontend styling, REST APIs, and robust relational database storage.</p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Data Science &amp; Machine Learning</h3>
+                        <p>Analyzing datasets to uncover hidden patterns, engineering predictive models, and designing machine learning solutions that automate complex tasks.</p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                        <h3>Software &amp; System Architecture</h3>
+                        <p>Applying clean Object-Oriented Programming (OOP) principles, structured data handling, modular service layers, and rigorous validation workflows.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ── Projects ── -->
+        <!-- ── Featured Projects ── -->
         <section id="projects" class="projects-section">
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
+                    <!-- Project 1 -->
                     <div class="project-card reveal">
                         <div class="project-image">
                             <div class="tech-overlay"></div>
                             <img src="lmstech.webp" alt="NexLib Management System" class="project-img">
                         </div>
                         <div class="project-info">
+                            <div class="project-tags">
+                                <span class="project-pill">Python</span>
+                                <span class="project-pill">Modular Architecture</span>
+                                <span class="project-pill">Inventory Engine</span>
+                            </div>
                             <h3>NexLib Management System</h3>
-                            <p>A high-tech digital library platform. Features a futuristic interface, user/admin portals, automated fine calculation (₹100/week), and real-time inventory tracking.</p>
+                            <p>A digital library management platform featuring role-based user/admin portals, automated fine calculations (₹100/week), and real-time book inventory circulation.</p>
                             <div class="project-links">
                                 <a href="librarymanagementsystem/" target="_blank" class="btn-link">
                                     <i class="fas fa-play"></i> Live System
+                                </a>
+                                <a href="https://github.com/rajivposwal" target="_blank" class="btn-link btn-link-outline">
+                                    <i class="fab fa-github"></i> Repository
                                 </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Project 2 -->
                     <div class="project-card reveal">
                         <div class="project-image">
                             <div class="tech-overlay"></div>
                             <img src="ticketbooking.png" alt="Global Ticket Booking System" class="project-img">
                         </div>
                         <div class="project-info">
-                            <h3>Global Ticket Booking System</h3>
-                            <p>A comprehensive travel booking platform supporting Flights, Hotels, Trains, and Buses. Features real-time FlightRadar24 tracking, live geocoding, and mobile-responsive UI.</p>
+                            <div class="project-tags">
+                                <span class="project-pill">Flask</span>
+                                <span class="project-pill">SQLite</span>
+                                <span class="project-pill">FlightRadar24 API</span>
+                                <span class="project-pill">RapidAPI</span>
+                            </div>
+                            <h3>Global Ticket Booking Platform</h3>
+                            <p>An all-in-one travel reservation ecosystem supporting Flights, Hotels, Trains, and Buses. Features real-time aircraft radar integration, live geocoding, and user dashboard.</p>
                             <div class="project-links">
                                 <a href="https://travel-universe.vercel.app" target="_blank" class="btn-link">
-                                    <i class="fas fa-play"></i> Live System
+                                    <i class="fas fa-play"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/rajivposwal" target="_blank" class="btn-link btn-link-outline">
+                                    <i class="fab fa-github"></i> Repository
                                 </a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- ── Resume / CV ── -->
+        <!-- ── Resume / CV Section ── -->
         <section id="cv" class="cv-section">
             <div class="container">
                 <h2 class="section-title">My Resume</h2>
@@ -186,13 +274,13 @@
                         <p class="cv-desc">Explore my complete background, technical skillset, projects, certifications, summer training, and academic records.</p>
                         <div class="cv-highlights">
                             <span class="cv-badge"><i class="fab fa-python"></i> Python &amp; SQL</span>
-                            <span class="cv-badge"><i class="fas fa-code"></i> HTML, CSS &amp; JavaScript</span>
-                            <span class="cv-badge"><i class="fas fa-certificate"></i> Certified by Oracle &amp; Microsoft</span>
+                            <span class="cv-badge"><i class="fas fa-code"></i> Full Stack Development</span>
+                            <span class="cv-badge"><i class="fas fa-award"></i> Certified by Oracle &amp; Microsoft</span>
                         </div>
                     </div>
                     <div class="cv-banner-actions">
                         <a href="resume.html" target="_blank" class="btn-link cv-btn-primary">
-                            <i class="fas fa-arrow-up-right-from-square"></i> View Full Resume
+                            <i class="fas fa-arrow-up-right-from-square"></i> View Interactive Resume
                         </a>
                         <a href="Rajiv_Kumar_CV.pdf" target="_blank" class="btn-link cv-btn-secondary">
                             <i class="fas fa-file-pdf"></i> View PDF
@@ -205,21 +293,68 @@
             </div>
         </section>
 
-        <!-- ── Certificates ── -->
+        <!-- ── Certifications & Achievements ── -->
         <section id="certificates" class="certificates-section">
             <div class="container">
-                <h2 class="section-title">Certifications</h2>
+                <h2 class="section-title">Certifications &amp; Honors</h2>
                 <div class="certs-grid">
+                    <!-- Cert 1 -->
                     <div class="cert-card reveal">
-                        <div class="cert-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
+                        <div class="cert-icon"><i class="fas fa-trophy"></i></div>
                         <div class="cert-body">
-                            <h3>Certificate</h3>
-                            <a href="https://drive.google.com/file/d/11Za3v8zLq2a1ZWPGEYcqrY5FfyaFnRkm/view?usp=drive_link"
-                               target="_blank" class="btn-link cert-btn">
-                                <i class="fas fa-external-link-alt"></i> View Certificate
-                            </a>
+                            <h3>5th Rank — University Hackathon</h3>
+                            <div class="cert-issuer"><i class="fas fa-university"></i> Lovely Professional University (Sep' 24)</div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Secured 5th position among 200+ participants in university-level competitive coding hackathon.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2 -->
+                    <div class="cert-card reveal">
+                        <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                        <div class="cert-body">
+                            <h3>Artificial Intelligence Course</h3>
+                            <div class="cert-issuer"><i class="fas fa-certificate"></i> Oracle Learning (Jan' 26)</div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Comprehensive training covering foundational AI algorithms, neural models, and modern machine learning concepts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3 -->
+                    <div class="cert-card reveal">
+                        <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
+                        <div class="cert-body">
+                            <h3>Java &amp; Graphical User Interface</h3>
+                            <div class="cert-issuer"><i class="fas fa-certificate"></i> Authorized by Microsoft (Nov' 24)</div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Hands-on GUI development using Swing / AWT, event driven programming, and object-oriented principles.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4 -->
+                    <div class="cert-card reveal">
+                        <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                        <div class="cert-body">
+                            <h3>ChatGPT-4 Prompt Engineering &amp; LLMs</h3>
+                            <div class="cert-issuer"><i class="fas fa-certificate"></i> Infosys (Oct' 24)</div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Advanced prompt design, generative AI workflows, and LLM application integrations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 5 -->
+                    <div class="cert-card reveal">
+                        <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="cert-body">
+                            <h3>Fundamentals of Data Structures</h3>
+                            <div class="cert-issuer"><i class="fas fa-laptop-code"></i> Summer Internship — Grade 'B' (Jul' 25)</div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Mastered essential data structures, algorithm analysis, and real-world implementation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 6 -->
+                    <div class="cert-card reveal">
+                        <div class="cert-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="cert-body">
+                            <h3>Advanced Robotics Applications</h3>
+                            <div class="cert-issuer"><i class="fas fa-certificate"></i> Robotics Systems (Apr' 26)</div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Applied principles of automated robotics and sensor-driven hardware interfaces.</p>
                         </div>
                     </div>
                 </div>
@@ -230,7 +365,11 @@
         <section id="contact" class="contact-section footer-section">
             <div class="container">
                 <div class="contact-wrapper reveal">
-                    <h2 class="section-title" style="text-align:left; margin-bottom:2rem;">Get In Touch</h2>
+                    <h2 class="section-title" style="text-align:left; margin-bottom:2rem;">Let's Connect</h2>
+                    <p style="color:var(--text-muted); max-width:600px; margin-bottom:2.2rem; font-size:0.98rem;">
+                        Feel free to reach out for software engineering roles, collaboration opportunities, or technical inquiries. I am always open to discussing new challenges!
+                    </p>
+
                     <div class="contact-details-grid">
                         <a href="mailto:rajivposwal489@gmail.com" class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -247,7 +386,7 @@
                             </div>
                         </div>
                         <a href="https://www.linkedin.com/in/rajivposla489" target="_blank" class="contact-item">
-                            <i class="fab fa-linkedin"></i>
+                            <i class="fab fa-linkedin-in"></i>
                             <div>
                                 <h4>LinkedIn</h4>
                                 <span>/in/rajivposla489</span>
@@ -262,8 +401,10 @@
                         </a>
                     </div>
                 </div>
+
                 <footer>
-                    <p>&copy; 2025 Rajiv Kumar. All Rights Reserved.</p>
+                    <p>&copy; 2026 Rajiv Kumar. Built with clean code &amp; precision.</p>
+                    <p><a href="#home">Back to Top <i class="fas fa-arrow-up"></i></a></p>
                 </footer>
             </div>
         </section>
