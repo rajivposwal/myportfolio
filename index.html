@@ -13,19 +13,23 @@
 
 <body>
 
+    <!-- High-Tech Interactive Neural Canvas -->
+    <canvas id="tech-canvas"></canvas>
+
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
     <!-- Navigation Header -->
     <header>
         <nav class="navbar">
-            <a href="#home" class="logo">
+            <a href="#home" class="logo" data-decrypt>
                 Rajiv<span>.dev</span>
-                <span class="logo-badge">PORTFOLIO</span>
+                <span class="logo-badge">SYS_v2.6</span>
             </a>
 
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#terminal">Terminal</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">What I Do</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -50,19 +54,19 @@
                 <div class="hero-text">
                     <div class="status-pill">
                         <span class="status-dot"></span>
-                        Available for Full-time Roles &amp; Projects
+                        <span class="mono-code">STATUS:</span> OPERATIONAL // OPEN TO WORK
                     </div>
 
-                    <h1 class="name">Hi, I'm <span class="gradient-text">Rajiv Kumar</span></h1>
+                    <h1 class="name" data-decrypt>Hi, I'm <span class="gradient-text">Rajiv Kumar</span></h1>
                     <h2 class="role">Software Engineer &amp; <span class="typing-text">Data Science Enthusiast</span></h2>
-                    <p class="tagline">B.Tech Computer Science student at Lovely Professional University. Crafting intelligent systems, high-performance web platforms, and data-driven solutions.</p>
+                    <p class="tagline">B.Tech Computer Science student at Lovely Professional University. Engineering high-performance web systems, machine learning architectures, and scalable data solutions.</p>
 
                     <div class="hero-cta-group">
                         <a href="#projects" class="btn-primary-glow">
-                            <i class="fas fa-layer-group"></i> Explore Projects
+                            <i class="fas fa-terminal"></i> Explore Projects
                         </a>
                         <a href="resume.html" target="_blank" class="btn-secondary-outline">
-                            <i class="fas fa-file-alt"></i> View Resume
+                            <i class="fas fa-file-code"></i> View Resume
                         </a>
                     </div>
 
@@ -89,7 +93,7 @@
                         </div>
                         <img src="profile.jpg" alt="Rajiv Kumar" class="profile-img">
                         <div class="floating-badge badge-bottom-right">
-                            <i class="fas fa-code" style="color: #818cf8;"></i> Full Stack Web
+                            <i class="fas fa-microchip" style="color: #818cf8;"></i> Full Stack Core
                         </div>
                     </div>
                 </div>
@@ -101,7 +105,7 @@
             </div>
         </section>
 
-        <!-- ── Key Stats Banner ── -->
+        <!-- ── Telemetry / Stats Banner ── -->
         <div class="container">
             <div class="stats-banner reveal">
                 <div class="stat-item">
@@ -123,20 +127,71 @@
             </div>
         </div>
 
+        <!-- ── Interactive Cyber Terminal Widget ── -->
+        <section id="terminal" class="terminal-section">
+            <div class="container">
+                <div class="terminal-window reveal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="terminal-title">rajiv@sys-node:~ (bash)</div>
+                        <div class="terminal-ping">
+                            <i class="fas fa-circle" style="font-size:0.5rem;"></i> PING: 18ms
+                        </div>
+                    </div>
+
+                    <div class="terminal-body" id="terminal-output">
+                        <div class="terminal-row">
+                            <span class="t-prompt">rajiv@sys-core:~$</span> <span class="t-cmd">whoami</span>
+                        </div>
+                        <div class="terminal-row resp-line">
+                            <span class="t-cyan">Rajiv Kumar</span> — Software Engineer &amp; Data Science Specialist.
+                        </div>
+                        <div class="terminal-row resp-line">
+                            B.Tech Computer Science @ Lovely Professional University.
+                        </div>
+                        <div class="terminal-row resp-line">
+                            Type <span class="t-cyan">'help'</span> or click the command chips below to inspect live modules.
+                        </div>
+                    </div>
+
+                    <div class="terminal-controls">
+                        <div class="cmd-chips">
+                            <button type="button" class="cmd-chip" data-cmd="whoami">whoami</button>
+                            <button type="button" class="cmd-chip" data-cmd="skills">skills</button>
+                            <button type="button" class="cmd-chip" data-cmd="projects">projects</button>
+                            <button type="button" class="cmd-chip" data-cmd="status">status</button>
+                            <button type="button" class="cmd-chip" data-cmd="contact">contact</button>
+                            <button type="button" class="cmd-chip" data-cmd="help">help</button>
+                            <button type="button" class="cmd-chip" data-cmd="clear">clear</button>
+                        </div>
+                        <form id="terminal-form" class="terminal-form">
+                            <span class="terminal-input-prompt">&gt;</span>
+                            <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command (e.g. skills, projects, contact)..." autocomplete="off" spellcheck="false">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ── About Section ── -->
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
+                <span class="section-badge">// 01_OVERVIEW</span>
+                <h2 class="section-title" data-decrypt>About Me</h2>
                 <div class="about-grid">
                     <div class="about-text reveal">
-                        <h3><i class="fas fa-user-circle"></i> Background &amp; Philosophy</h3>
+                        <h3><i class="fas fa-terminal"></i> Background &amp; Philosophy</h3>
                         <p>I am a Computer Science &amp; Engineering undergraduate at Lovely Professional University with a strong foundation in software engineering, full stack web development, and data science.</p>
                         <p>I specialize in building complete end-to-end applications — from clean backend logic with Python (Flask) and relational database architecture (MySQL, SQLite) to interactive, modern user interfaces. I thrive on translating intricate problems into elegant, reliable software.</p>
                         <p>Beyond coding, I've served as an Academic Counsellor at Nyeras.com Education Technology and Head Coordinator for LPU events, combining technical aptitude with leadership and collaborative communication.</p>
                     </div>
 
                     <div class="skills-wrapper reveal">
-                        <h3><i class="fas fa-laptop-code"></i> Technical Stack</h3>
+                        <h3><i class="fas fa-layer-group"></i> Technical Matrix</h3>
 
                         <div class="skills-category">
                             <div class="category-label">Languages</div>
@@ -178,7 +233,8 @@
         <!-- ── What I Do ── -->
         <section id="experience" class="experience-section">
             <div class="container">
-                <h2 class="section-title">What I Do</h2>
+                <span class="section-badge">// 02_ENGINEERING_CORE</span>
+                <h2 class="section-title" data-decrypt>What I Do</h2>
                 <div class="cards-grid">
                     <div class="card reveal">
                         <div class="card-icon"><i class="fas fa-code"></i></div>
@@ -193,7 +249,7 @@
                     </div>
 
                     <div class="card reveal">
-                        <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="card-icon"><i class="fas fa-microchip"></i></div>
                         <h3>Software &amp; System Architecture</h3>
                         <p>Applying clean Object-Oriented Programming (OOP) principles, structured data handling, modular service layers, and rigorous validation workflows.</p>
                     </div>
@@ -204,7 +260,8 @@
         <!-- ── Featured Projects ── -->
         <section id="projects" class="projects-section">
             <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
+                <span class="section-badge">// 03_DEPLOYED_SYSTEMS</span>
+                <h2 class="section-title" data-decrypt>Featured Projects</h2>
                 <div class="projects-grid">
                     <!-- Project 1 -->
                     <div class="project-card reveal">
@@ -263,7 +320,8 @@
         <!-- ── Resume / CV Section ── -->
         <section id="cv" class="cv-section">
             <div class="container">
-                <h2 class="section-title">My Resume</h2>
+                <span class="section-badge">// 04_CREDENTIALS</span>
+                <h2 class="section-title" data-decrypt>My Resume</h2>
                 <div class="cv-card-banner reveal">
                     <div class="cv-banner-icon">
                         <i class="fas fa-file-invoice"></i>
@@ -296,7 +354,8 @@
         <!-- ── Certifications & Achievements ── -->
         <section id="certificates" class="certificates-section">
             <div class="container">
-                <h2 class="section-title">Certifications &amp; Honors</h2>
+                <span class="section-badge">// 05_VERIFIED_HONORS</span>
+                <h2 class="section-title" data-decrypt>Certifications &amp; Honors</h2>
                 <div class="certs-grid">
                     <!-- Cert 1 -->
                     <div class="cert-card reveal">
@@ -364,46 +423,45 @@
         <!-- ── Contact ── -->
         <section id="contact" class="contact-section footer-section">
             <div class="container">
-                <div class="contact-wrapper reveal">
-                    <h2 class="section-title" style="text-align:left; margin-bottom:2rem;">Let's Connect</h2>
-                    <p style="color:var(--text-muted); max-width:600px; margin-bottom:2.2rem; font-size:0.98rem;">
-                        Feel free to reach out for software engineering roles, collaboration opportunities, or technical inquiries. I am always open to discussing new challenges!
-                    </p>
+                <span class="section-badge">// 06_COMMUNICATION_LINK</span>
+                <h2 class="section-title" style="text-align:left; margin-bottom:1.5rem;" data-decrypt>Let's Connect</h2>
+                <p style="color:var(--text-muted); max-width:600px; margin-bottom:2.2rem; font-size:0.98rem;">
+                    Feel free to reach out for software engineering roles, collaboration opportunities, or technical inquiries. I am always open to discussing new challenges!
+                </p>
 
-                    <div class="contact-details-grid">
-                        <a href="mailto:rajivposwal489@gmail.com" class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <span>rajivposwal489@gmail.com</span>
-                            </div>
-                        </a>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <span>+91 9896144387</span>
-                            </div>
+                <div class="contact-details-grid">
+                    <a href="mailto:rajivposwal489@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <span>rajivposwal489@gmail.com</span>
                         </div>
-                        <a href="https://www.linkedin.com/in/rajivposla489" target="_blank" class="contact-item">
-                            <i class="fab fa-linkedin-in"></i>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <span>/in/rajivposla489</span>
-                            </div>
-                        </a>
-                        <a href="https://github.com/rajivposwal" target="_blank" class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <div>
-                                <h4>GitHub</h4>
-                                <span>@rajivposwal</span>
-                            </div>
-                        </a>
+                    </a>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <span>+91 9896144387</span>
+                        </div>
                     </div>
+                    <a href="https://www.linkedin.com/in/rajivposla489" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin-in"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <span>/in/rajivposla489</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/rajivposwal" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <span>@rajivposwal</span>
+                        </div>
+                    </a>
                 </div>
 
                 <footer>
-                    <p>&copy; 2026 Rajiv Kumar. Built with clean code &amp; precision.</p>
+                    <p>&copy; 2026 Rajiv Kumar. [SYS_ID: 0x489] // Engineered with precision.</p>
                     <p><a href="#home">Back to Top <i class="fas fa-arrow-up"></i></a></p>
                 </footer>
             </div>
