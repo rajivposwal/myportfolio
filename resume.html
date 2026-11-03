@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajiv Kumar — Curriculum Vitae</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #f97316;
+            --accent-dark: #ea580c;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Action Bar (Web only) */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .top-bar .btn-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-back {
+            background: rgba(255,255,255,0.1);
+            color: #f1f5f9;
+        }
+        .btn-back:hover {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--primary);
+        }
+        .btn-secondary:hover {
+            background: #f1f5f9;
+        }
+
+        /* Resume Sheet */
+        .resume-page {
+            max-width: 860px;
+            margin: 2rem auto;
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border-radius: 8px;
+            padding: 3rem 3.5rem;
+        }
+
+        /* Header */
+        .resume-header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .candidate-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem 1.4rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+
+        .contact-links i {
+            color: var(--accent);
+        }
+
+        /* Section Styling */
+        .resume-section {
+            margin-bottom: 1.4rem;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--primary);
+            border-bottom: 1.5px solid var(--border);
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 0.95rem;
+        }
+
+        /* Item blocks */
+        .item-block {
+            margin-bottom: 0.85rem;
+        }
+        .item-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .item-title {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .item-title a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .item-sub {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+        }
+
+        /* Bullet lists */
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.15rem;
+            font-size: 0.9rem;
+            color: #334155;
+            margin-bottom: 0.25rem;
+            line-height: 1.45;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0.25rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 0.45rem 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .skills-label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .skills-value {
+            color: #334155;
+        }
+
+        /* Simple Two-Column / List layouts */
+        .cert-list, .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .no-print, .top-bar {
+                display: none !important;
+            }
+
+            .resume-page {
+                box-shadow: none;
+                margin: 0;
+                padding: 1.5cm;
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .resume-header {
+                border-bottom: 2px solid #000;
+            }
+
+            .section-title {
+                border-bottom: 1px solid #333;
+                color: #000;
+            }
+
+            .section-title i, .bullet-list li::before, .contact-links i {
+                color: #000;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .resume-page {
+                padding: 1.5rem 1rem;
+                margin: 0.5rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+                margin-bottom: 0.5rem;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: stretch;
+            }
+            .top-bar .btn-group {
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Web Top Bar -->
+    <div class="top-bar no-print">
+        <a href="index.html" class="action-btn btn-back">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <div class="btn-group">
+            <button onclick="window.print()" class="action-btn btn-secondary">
+                <i class="fas fa-print"></i> Print
+            </button>
+            <a href="Rajiv_Kumar_CV.pdf" download class="action-btn btn-primary">
+                <i class="fas fa-file-download"></i> Download PDF
+            </a>
+        </div>
+    </div>
+
+    <main class="resume-page">
+        <!-- Header -->
+        <header class="resume-header">
+            <h1 class="candidate-name">RAJIV KUMAR</h1>
+            <div class="contact-links">
+                <a href="mailto:rajivposwal489@gmail.com"><i class="fas fa-envelope"></i> rajivposwal489@gmail.com</a>
+                <a href="tel:+919896144387"><i class="fas fa-phone"></i> +91-9896144387</a>
+                <a href="https://www.linkedin.com/in/rajivposla489/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/rajivposla489</a>
+                <a href="https://github.com/rajivposwal" target="_blank"><i class="fab fa-github"></i> github.com/rajivposwal</a>
+            </div>
+        </header>
+
+        <!-- Technical Skills -->
+        <section class="resume-section">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-label">Languages:</div>
+                <div class="skills-value">Python, SQL</div>
+
+                <div class="skills-label">Frameworks & Web:</div>
+                <div class="skills-value">HTML, CSS, JavaScript</div>
+
+                <div class="skills-label">Tools / Platforms:</div>
+                <div class="skills-value">MySQL, Power BI, MS Excel, Jupyter Notebook, VS Code, Data Processing Tools, IntelliJ IDEA</div>
+
+                <div class="skills-label">Soft Skills:</div>
+                <div class="skills-value">Problem-Solving, Teamwork, Anchoring, Adaptability, Public Speaking, Group Discussion</div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="resume-section">
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Projects</h2>
+
+            <div class="item-block">
+                <div class="item-head">
+                    <span class="item-title">Library Management System | <a href="librarymanagementsystem/" target="_blank">Live Link</a></span>
+                    <span class="item-date">Jul’ 25 – Aug’ 25</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Developed a Python-based library management system used for managing library operations efficiently.</li>
+                    <li>Implemented secure backend logic for book issuing, book returns, and fine calculations with accurate validations.</li>
+                    <li>Built modular service layers to streamline library operations and improve overall system performance.</li>
+                    <li>Established secure user registration, login authentication, and library account creation ensuring data integrity.</li>
+                </ul>
+            </div>
+
+            <div class="item-block">
+                <div class="item-head">
+                    <span class="item-title">Ticket Booking Web Application | <a href="https://travel-universe.vercel.app" target="_blank">Live Link</a></span>
+                    <span class="item-date">Feb’ 25 – Mar’ 25</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Developed a dynamic travel platform using Python (Flask) and SQLite to search and book flights, trains, buses, and hotels across India.</li>
+                    <li>Integrated live APIs (FlightRadar24, Rapid API) to display real-time flight statuses, mapping coordinates, and realistic pricing mockups.</li>
+                    <li>Built a secure user dashboard for managing active bookings, viewing lifetime expenditure statistics, downloading digital tickets, and managing profiles.</li>
+                    <li>Designed a highly responsive, animated frontend with dark/light themes using HTML/CSS/JS, and deployed the live application.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Training & Internships -->
+        <section class="resume-section">
+            <h2 class="section-title"><i class="fas fa-user-graduate"></i> Training & Internships</h2>
+            <div class="item-block">
+                <div class="item-head">
+                    <span class="item-title">Fundamentals of Data Structures — Summer Internship</span>
+                    <span class="item-date">Jun’ 25 – Jul’ 25</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Completed a summer internship program focused on Java development and real-world GUI-based applications.</li>
+                    <li>Gained firsthand experience in building Java GUI applications using Swing / AWT, including event handling and user interaction.</li>
+                    <li>Developed mini-projects demonstrating problem-solving through object-oriented programming principles in Java.</li>
+                    <li>Strengthened understanding of core Java concepts, application flow, and user interface design for efficient software solutions.</li>
+                    <li>Earned Grade ‘B’ (70% and above) as per internship evaluation criteria.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="resume-section">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="cert-list">
+                <div class="item-head">
+                    <span class="item-title">Advanced Robotics Applications</span>
+                    <span class="item-date">Apr’ 26</span>
+                </div>
+                <div class="item-head">
+                    <span class="item-title">Artificial Intelligence Course — By Oracle Learning</span>
+                    <span class="item-date">Jan’ 26</span>
+                </div>
+                <div class="item-head">
+                    <span class="item-title">Build Generative AI Apps and Solutions with No-Code Tools — Udemy</span>
+                    <span class="item-date">Dec’ 25</span>
+                </div>
+                <div class="item-head">
+                    <span class="item-title">Java and Graphical User Interface — Authorized by Microsoft</span>
+                    <span class="item-date">Nov’ 24</span>
+                </div>
+                <div class="item-head">
+                    <span class="item-title">ChatGPT-4 Prompt Engineering, Generative AI & LLM — Infosys</span>
+                    <span class="item-date">Oct’ 24</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements & Experience -->
+        <section class="resume-section">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements & Leadership</h2>
+            <div class="item-block">
+                <div class="item-head">
+                    <span class="item-title">5th Rank — Lovely Professional University Hackathon</span>
+                    <span class="item-date">Sep’ 24</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Secured 5th position out of 200+ participants in university-level competitive coding hackathon.</li>
+                </ul>
+            </div>
+            <div class="item-block">
+                <div class="item-head">
+                    <span class="item-title">Experience & Extra-Curriculars</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Worked as an Academic Counsellor at Nyeras.com Education Technology PVT LTD.</li>
+                    <li>Served as Head Coordinator at Lovely Professional University Events.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="resume-section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="edu-list">
+                <div class="item-block">
+                    <div class="item-head">
+                        <span class="item-title">Lovely Professional University — Phagwara, Punjab</span>
+                        <span class="item-date">Aug’ 23 – Present</span>
+                    </div>
+                    <div class="item-sub">Bachelor of Technology in Computer Science and Engineering | CGPA: 6.00</div>
+                </div>
+                <div class="item-block">
+                    <div class="item-head">
+                        <span class="item-title">DAV Police Public School — Panipat, Haryana</span>
+                        <span class="item-date">Apr’ 21 – Mar’ 22</span>
+                    </div>
+                    <div class="item-sub">Intermediate (Class XII) | Percentage: 70%</div>
+                </div>
+                <div class="item-block">
+                    <div class="item-head">
+                        <span class="item-title">DAV Police Public School — Panipat, Haryana</span>
+                        <span class="item-date">Apr’ 19 – Mar’ 20</span>
+                    </div>
+                    <div class="item-sub">Matriculation (Class X) | Percentage: 70%</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -499,7 +499,7 @@ header {
 /* Apply to existing glass classes */
 .glass-panel,
 .glass-card,
-.cv-wrapper {
+.cv-card-banner {
     background: var(--navy-card);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -786,34 +786,47 @@ header {
 }
 
 /* ── CV Section ── */
-.cv-wrapper {
+.cv-card-banner {
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 3rem;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 2.5rem;
-    padding: 2.5rem;
+    transition: all 0.35s var(--ease);
 }
 
-.cv-left {
-    flex: 0 0 280px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+.cv-card-banner:hover {
+    border-color: rgba(249,115,22,0.35);
+    box-shadow: 0 12px 40px rgba(249,115,22,0.12);
+    transform: translateY(-4px);
 }
 
-.cv-icon-ring {
-    width: 72px;
-    height: 72px;
-    border-radius: 14px;
+.cv-banner-icon {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 18px;
     background: var(--blue-glow);
     border: 1px solid rgba(249,115,22,0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     color: var(--blue-light);
 }
 
-.cv-left h3 {
-    font-size: 1.6rem;
+.cv-banner-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.cv-banner-info h3 {
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--white);
     margin: 0;
@@ -827,56 +840,85 @@ header {
 
 .cv-desc {
     color: var(--muted);
-    font-size: 0.92rem;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 600px;
 }
 
-.cv-actions {
+.cv-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+}
+
+.cv-badge {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cv-badge i {
+    color: var(--blue-light);
+}
+
+.cv-banner-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-top: auto;
+    gap: 0.85rem;
+    min-width: 220px;
 }
 
-.cv-btn-download {
+.cv-btn-primary {
     background: var(--blue);
     border-color: var(--blue);
+    color: #fff;
     justify-content: center;
+    font-weight: 600;
+    padding: 0.85rem 1.4rem;
 }
 
-.cv-btn-download:hover {
+.cv-btn-primary:hover {
     background: var(--blue-light);
     border-color: var(--blue-light);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249,115,22,0.35);
 }
 
-.cv-btn-view {
-    background: transparent;
+.cv-btn-secondary {
+    background: rgba(255,255,255,0.06);
     border-color: var(--border);
     color: var(--white);
     justify-content: center;
+    padding: 0.75rem 1.4rem;
 }
 
-.cv-btn-view:hover {
-    background: var(--navy-light);
+.cv-btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
     border-color: rgba(249,115,22,0.3);
+    color: #fff;
     transform: translateY(-2px);
-    box-shadow: none;
 }
 
-.cv-right {
-    flex: 1;
-    min-height: 480px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--border);
+.cv-btn-download {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--muted);
+    justify-content: center;
+    padding: 0.75rem 1.4rem;
 }
 
-.cv-preview {
-    width: 100%;
-    height: 100%;
-    min-height: 480px;
-    background: rgba(255,255,255,0.02);
-    border: none;
+.cv-btn-download:hover {
+    color: var(--white);
+    border-color: var(--muted);
+    transform: translateY(-2px);
 }
 
 /* ── Certificates ── */
@@ -1061,15 +1103,15 @@ footer {
 
     .about-grid { grid-template-columns: 1fr; }
 
-    .cv-wrapper {
+    .cv-card-banner {
         flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
     }
 
-    .cv-left {
-        flex: unset;
+    .cv-banner-actions {
         width: 100%;
-        align-items: center;
-        text-align: center;
     }
 
     .hamburger { display: flex; }
