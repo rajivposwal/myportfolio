@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isLight = document.documentElement.classList.contains('light-mode');
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = isLight ? 'rgba(37, 99, 235, 0.45)' : 'rgba(56, 189, 248, 0.55)';
+                ctx.fillStyle = isLight ? 'rgba(37, 99, 235, 0.45)' : 'rgba(59, 130, 246, 0.55)';
                 ctx.fill();
             }
         }
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = isLight ? `rgba(37, 99, 235, ${alpha})` : `rgba(56, 189, 248, ${alpha})`;
+                        ctx.strokeStyle = isLight ? `rgba(37, 99, 235, ${alpha})` : `rgba(59, 130, 246, ${alpha})`;
                         ctx.lineWidth = 0.8;
                         ctx.stroke();
                     }
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(mouse.x, mouse.y);
-                        ctx.strokeStyle = isLight ? `rgba(99, 102, 241, ${mAlpha})` : `rgba(129, 140, 248, ${mAlpha})`;
+                        ctx.strokeStyle = isLight ? `rgba(37, 99, 235, ${mAlpha})` : `rgba(59, 130, 246, ${mAlpha})`;
                         ctx.lineWidth = 1;
                         ctx.stroke();
                     }
