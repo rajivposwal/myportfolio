@@ -101,16 +101,9 @@ a {
 ul { list-style: none; }
 img { display: block; max-width: 100%; }
 
-/* ── Background Particle Canvas ── */
+/* ── Clean Plain Background Styling ── */
 #tech-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.85;
+    display: none !important;
 }
 
 /* ── Scroll Progress Bar ── */
@@ -333,6 +326,7 @@ header {
     padding: 8.5rem 2rem 5rem;
     position: relative;
     overflow: hidden;
+    background: var(--bg-primary);
 }
 
 .hero-content {
