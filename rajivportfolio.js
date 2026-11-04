@@ -289,7 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseenter', () => decryptEffect(el));
     });
 
-    // Run once on visible elements
     setTimeout(() => {
         const heroTitle = document.querySelector('.hero-section .name');
         if (heroTitle) decryptEffect(heroTitle);
@@ -299,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        9. Mouse Spotlight Tracking on Cyber Cards
        ========================================= */
-    const spotlightCards = document.querySelectorAll('.card, .project-card, .cert-card, .cv-card-banner, .about-text, .skills-wrapper, .terminal-window');
+    const spotlightCards = document.querySelectorAll('.card, .project-card, .cert-card, .cv-card-banner, .about-text, .skills-wrapper, .terminal-window, .ide-container, .arch-spec-card');
     spotlightCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -408,6 +407,177 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cmd) executeCommand(cmd);
         });
     });
+
+
+    /* =========================================
+       11. Interactive Code Workbench IDE
+       ========================================= */
+    const ideTabs   = document.querySelectorAll('.ide-tab');
+    const ideCode   = document.getElementById('ide-code');
+    const ideLines  = document.getElementById('ide-lines');
+    const idePath   = document.getElementById('ide-filepath');
+    const copyBtn   = document.getElementById('btn-copy-code');
+
+    const snippets = {
+        'main.py': {
+            path: 'src/services/circulation_engine.py',
+            code: `<span class="tok-cm"># NexLib Core Library Service Engine - Production Logic</span>
+<span class="tok-kw">from</span> dataclasses <span class="tok-kw">import</span> dataclass
+<span class="tok-kw">from</span> datetime <span class="tok-kw">import</span> datetime, date
+<span class="tok-kw">from</span> typing <span class="tok-kw">import</span> Dict, Any
+
+<span class="tok-type">@dataclass</span>
+<span class="tok-kw">class</span> <span class="tok-fn">CirculationRecord</span>:
+    circulation_id: <span class="tok-type">str</span>
+    book_id: <span class="tok-type">str</span>
+    borrower_id: <span class="tok-type">str</span>
+    issue_date: <span class="tok-type">date</span>
+    due_date: <span class="tok-type">date</span>
+    fine_rate_per_week: <span class="tok-type">float</span> = <span class="tok-num">100.00</span>  <span class="tok-cm"># Standard ₹100/wk</span>
+
+    <span class="tok-kw">def</span> <span class="tok-fn">compute_penalty</span>(<span class="tok-var">self</span>, return_date: <span class="tok-type">date</span>) -&gt; Dict[<span class="tok-type">str</span>, Any]:
+        <span class="tok-str">"""Computes overdue weeks & monetary penalty with strict validation."""</span>
+        <span class="tok-kw">if</span> return_date &lt;= <span class="tok-var">self</span>.due_date:
+            <span class="tok-kw">return</span> {<span class="tok-str">"overdue"</span>: <span class="tok-kw">False</span>, <span class="tok-str">"penalty"</span>: <span class="tok-num">0.00</span>, <span class="tok-str">"days_late"</span>: <span class="tok-num">0</span>}
+
+        delta_days = (return_date - <span class="tok-var">self</span>.due_date).days
+        overdue_weeks = ((delta_days - <span class="tok-num">1</span>) // <span class="tok-num">7</span>) + <span class="tok-num">1</span>
+        total_fine = overdue_weeks * <span class="tok-var">self</span>.fine_rate_per_week
+
+        <span class="tok-kw">return</span> {
+            <span class="tok-str">"overdue"</span>: <span class="tok-kw">True</span>,
+            <span class="tok-str">"days_late"</span>: delta_days,
+            <span class="tok-str">"overdue_weeks"</span>: overdue_weeks,
+            <span class="tok-str">"total_fine"</span>: round(total_fine, <span class="tok-num">2</span>),
+            <span class="tok-str">"status"</span>: <span class="tok-str">"ACCRUED"</span>
+        }`
+        },
+        'schema.sql': {
+            path: 'database/schema_production.sql',
+            code: `<span class="tok-cm">-- Relational Schema: Production Architecture (3NF Compliant)</span>
+<span class="tok-kw">CREATE TABLE IF NOT EXISTS</span> <span class="tok-fn">system_users</span> (
+    user_id <span class="tok-type">VARCHAR</span>(<span class="tok-num">36</span>) <span class="tok-kw">PRIMARY KEY</span>,
+    full_name <span class="tok-type">VARCHAR</span>(<span class="tok-num">120</span>) <span class="tok-kw">NOT NULL</span>,
+    email <span class="tok-type">VARCHAR</span>(<span class="tok-num">160</span>) <span class="tok-kw">UNIQUE NOT NULL</span>,
+    access_level <span class="tok-type">ENUM</span>(<span class="tok-str">'admin'</span>, <span class="tok-str">'faculty'</span>, <span class="tok-str">'student'</span>) <span class="tok-kw">DEFAULT</span> <span class="tok-str">'student'</span>,
+    created_at <span class="tok-type">TIMESTAMP</span> <span class="tok-kw">DEFAULT CURRENT_TIMESTAMP</span>
+);
+
+<span class="tok-kw">CREATE TABLE IF NOT EXISTS</span> <span class="tok-fn">book_inventory</span> (
+    isbn <span class="tok-type">VARCHAR</span>(<span class="tok-num">20</span>) <span class="tok-kw">PRIMARY KEY</span>,
+    title <span class="tok-type">VARCHAR</span>(<span class="tok-num">255</span>) <span class="tok-kw">NOT NULL</span>,
+    author <span class="tok-type">VARCHAR</span>(<span class="tok-num">180</span>) <span class="tok-kw">NOT NULL</span>,
+    total_copies <span class="tok-type">INT UNSIGNED</span> <span class="tok-kw">DEFAULT</span> <span class="tok-num">1</span>,
+    available_copies <span class="tok-type">INT UNSIGNED</span> <span class="tok-kw">DEFAULT</span> <span class="tok-num">1</span>
+);
+
+<span class="tok-kw">CREATE TABLE IF NOT EXISTS</span> <span class="tok-fn">circulation_audit</span> (
+    transaction_id <span class="tok-type">VARCHAR</span>(<span class="tok-num">36</span>) <span class="tok-kw">PRIMARY KEY</span>,
+    isbn <span class="tok-type">VARCHAR</span>(<span class="tok-num">20</span>) <span class="tok-kw">NOT NULL</span>,
+    user_id <span class="tok-type">VARCHAR</span>(<span class="tok-num">36</span>) <span class="tok-kw">NOT NULL</span>,
+    issue_date <span class="tok-type">DATE</span> <span class="tok-kw">NOT NULL</span>,
+    due_date <span class="tok-type">DATE</span> <span class="tok-kw">NOT NULL</span>,
+    return_date <span class="tok-type">DATE NULL</span>,
+    fine_assessed <span class="tok-type">DECIMAL</span>(<span class="tok-num">8</span>, <span class="tok-num">2</span>) <span class="tok-kw">DEFAULT</span> <span class="tok-num">0.00</span>,
+    <span class="tok-kw">FOREIGN KEY</span> (isbn) <span class="tok-kw">REFERENCES</span> <span class="tok-fn">book_inventory</span>(isbn),
+    <span class="tok-kw">FOREIGN KEY</span> (user_id) <span class="tok-kw">REFERENCES</span> <span class="tok-fn">system_users</span>(user_id) <span class="tok-kw">ON DELETE CASCADE</span>
+);`
+        },
+        'routes.py': {
+            path: 'src/api/flight_routes.py',
+            code: `<span class="tok-cm"># FlightRadar24 Live Avionics & Travel Dispatch API Router</span>
+<span class="tok-kw">from</span> flask <span class="tok-kw">import</span> Blueprint, jsonify, request
+<span class="tok-kw">import</span> requests, os
+
+travel_router = <span class="tok-fn">Blueprint</span>(<span class="tok-str">'travel_router'</span>, __name__, url_prefix=<span class="tok-str">'/api/v2'</span>)
+
+<span class="tok-type">@travel_router.route</span>(<span class="tok-str">'/avionics/live'</span>, methods=[<span class="tok-str">'GET'</span>])
+<span class="tok-kw">def</span> <span class="tok-fn">fetch_live_flights</span>():
+    <span class="tok-str">"""Fetches real-time flight telemetry coordinates via proxy."""</span>
+    bbox = request.args.get(<span class="tok-str">'bbox'</span>, <span class="tok-str">'28.70,77.10,12.97,77.59'</span>)
+    rapidapi_key = os.getenv(<span class="tok-str">'FLIGHTRADAR_API_KEY'</span>)
+    
+    <span class="tok-kw">try</span>:
+        upstream = requests.get(
+            <span class="tok-str">f'https://flightradar24-proxy.internal/v1/zones/{bbox}'</span>,
+            headers={<span class="tok-str">'X-RapidAPI-Key'</span>: rapidapi_key},
+            timeout=<span class="tok-num">4.5</span>
+        )
+        upstream.raise_for_status()
+        radar_feed = upstream.json().get(<span class="tok-str">'aircraft'</span>, [])
+        
+        <span class="tok-kw">return</span> jsonify({
+            <span class="tok-str">'status'</span>: <span class="tok-str">'HEALTHY'</span>,
+            <span class="tok-str">'active_aircraft'</span>: len(radar_feed),
+            <span class="tok-str">'telemetry'</span>: radar_feed
+        }), <span class="tok-num">200</span>
+    <span class="tok-kw">except</span> requests.RequestException <span class="tok-kw">as</span> err:
+        <span class="tok-kw">return</span> jsonify({<span class="tok-str">'status'</span>: <span class="tok-str">'FAIL'</span>, <span class="tok-str">'error'</span>: str(err)}), <span class="tok-num">503</span>`
+        },
+        'config.json': {
+            path: 'config/system_telemetry.json',
+            code: `{
+  <span class="tok-type">"system_telemetry"</span>: {
+    <span class="tok-str">"node_id"</span>: <span class="tok-str">"rajiv-production-01"</span>,
+    <span class="tok-str">"architecture"</span>: <span class="tok-str">"Modular Micro-MVC / Python 3.12"</span>,
+    <span class="tok-str">"engineer"</span>: <span class="tok-str">"Rajiv Kumar"</span>,
+    <span class="tok-str">"degree"</span>: <span class="tok-str">"B.Tech Computer Science &amp; Engineering"</span>,
+    <span class="tok-str">"institution"</span>: <span class="tok-str">"Lovely Professional University"</span>,
+    <span class="tok-str">"performance_metrics"</span>: {
+      <span class="tok-str">"average_latency_ms"</span>: <span class="tok-num">18.4</span>,
+      <span class="tok-str">"uptime_sla"</span>: <span class="tok-str">"99.95%"</span>,
+      <span class="tok-str">"verified_certifications"</span>: <span class="tok-num">5</span>,
+      <span class="tok-str">"hackathon_placement"</span>: <span class="tok-str">"5th / 200+ Developers"</span>
+    },
+    <span class="tok-str">"runtime_stack"</span>: {
+      <span class="tok-str">"backend"</span>: [<span class="tok-str">"Python"</span>, <span class="tok-str">"Flask"</span>, <span class="tok-str">"Gunicorn"</span>, <span class="tok-str">"Jinja2"</span>],
+      <span class="tok-str">"database"</span>: [<span class="tok-str">"MySQL"</span>, <span class="tok-str">"SQLite3"</span>, <span class="tok-str">"ACID Compliance"</span>],
+      <span class="tok-str">"analytics"</span>: [<span class="tok-str">"Power BI"</span>, <span class="tok-str">"Pandas"</span>, <span class="tok-str">"Jupyter Notebook"</span>]
+    }
+  }
+}`
+        }
+    };
+
+    function updateCodeView(tabName) {
+        if (!snippets[tabName] || !ideCode || !ideLines) return;
+        const snip = snippets[tabName];
+        ideCode.innerHTML = snip.code;
+        if (idePath) idePath.textContent = snip.path;
+
+        // Generate line numbers
+        const lineCount = snip.code.split('\n').length;
+        let lineHTML = '';
+        for (let i = 1; i <= lineCount; i++) {
+            lineHTML += `<div>${i}</div>`;
+        }
+        ideLines.innerHTML = lineHTML;
+    }
+
+    ideTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            ideTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const file = tab.getAttribute('data-file');
+            updateCodeView(file);
+        });
+    });
+
+    // Copy Code Button
+    copyBtn?.addEventListener('click', () => {
+        if (!ideCode) return;
+        const text = ideCode.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+                copyBtn.innerHTML = originalHTML;
+            }, 2000);
+        });
+    });
+
+    // Initialize with first tab
+    updateCodeView('main.py');
 
     function escapeHTML(str) {
         return str.replace(/[&<>'"]/g, tag => ({

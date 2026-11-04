@@ -1480,8 +1480,314 @@ footer a:hover {
     color: var(--accent-cyan);
 }
 
+/* ── Technical Engineering Workbench ── */
+.workbench-section {
+    background: var(--bg-primary);
+    position: relative;
+    z-index: 2;
+}
+
+.workbench-grid {
+    display: grid;
+    grid-template-columns: 1.18fr 0.82fr;
+    gap: 2.2rem;
+    align-items: stretch;
+}
+
+/* IDE Code Viewer */
+.ide-container {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(56, 189, 248, 0.12);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+}
+
+.ide-topbar {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 44px;
+    user-select: none;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.ide-tabs {
+    display: flex;
+    height: 100%;
+}
+
+.ide-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1.1rem;
+    height: 100%;
+    font-size: 0.82rem;
+    color: #8b949e;
+    cursor: pointer;
+    border-right: 1px solid #30363d;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.ide-tab:hover {
+    color: #c9d1d9;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.ide-tab.active {
+    color: #f0f6fc;
+    background: #0d1117;
+    border-top: 2px solid var(--accent-cyan);
+    font-weight: 600;
+}
+
+.ide-tab i {
+    font-size: 0.85rem;
+}
+
+.ide-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.ide-filepath {
+    font-size: 0.75rem;
+    color: #6e7681;
+}
+
+.btn-copy-code {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    font-size: 0.78rem;
+    padding: 0.28rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    transition: all 0.2s ease;
+}
+
+.btn-copy-code:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.ide-code-wrapper {
+    display: flex;
+    padding: 1.2rem 0;
+    max-height: 480px;
+    overflow-y: auto;
+    background: #0d1117;
+}
+
+.ide-line-numbers {
+    padding: 0 1rem;
+    text-align: right;
+    color: #484f58;
+    user-select: none;
+    font-size: 0.84rem;
+    line-height: 1.65;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ide-code-content {
+    flex: 1;
+    padding: 0 1.2rem;
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: #e6edf3;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+/* Syntax Highlighting */
+.tok-kw   { color: #ff7b72; font-weight: 600; }
+.tok-fn   { color: #d2a8ff; font-weight: 600; }
+.tok-str  { color: #a5d6ff; }
+.tok-cm   { color: #8b949e; font-style: italic; }
+.tok-type { color: #ffa657; }
+.tok-num  { color: #79c0ff; }
+.tok-var  { color: #7ee787; }
+
+/* Architecture Spec Card */
+.arch-spec-card {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
+    font-family: var(--font);
+}
+
+.arch-header {
+    margin-bottom: 1.4rem;
+}
+
+.arch-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+}
+
+.arch-header p {
+    font-size: 0.85rem;
+    color: #8b949e;
+}
+
+/* Architecture Flow Diagram */
+.arch-diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.6rem;
+    background: rgba(22, 27, 34, 0.85);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 1.1rem;
+    font-family: var(--font-mono);
+}
+
+.arch-node {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #f0f6fc;
+    transition: all 0.25s ease;
+}
+
+.arch-node:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+    transform: translateX(4px);
+}
+
+.arch-node-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.arch-node-tech {
+    font-size: 0.74rem;
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+
+.arch-connector {
+    text-align: center;
+    color: #484f58;
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+/* Spec Matrix Table */
+.spec-matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    font-family: var(--font-mono);
+}
+
+.spec-matrix-table th {
+    text-align: left;
+    color: #8b949e;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid #30363d;
+}
+
+.spec-matrix-table td {
+    padding: 0.65rem 0.6rem;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+    color: #e6edf3;
+}
+
+.spec-matrix-table tr:last-child td {
+    border-bottom: none;
+}
+
+.spec-badge {
+    color: var(--accent-emerald);
+    background: rgba(16, 185, 129, 0.12);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Technical Endpoints Box on Project Cards */
+.endpoints-box {
+    background: rgba(13, 17, 23, 0.95);
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+.endpoints-title {
+    color: #8b949e;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.endpoint-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.endpoint-row:last-child {
+    margin-bottom: 0;
+}
+
+.method-get { color: #38bdf8; font-weight: 700; }
+.method-post { color: #34d399; font-weight: 700; }
+.endpoint-path { color: #f0f6fc; }
+.endpoint-desc { color: #8b949e; margin-left: auto; font-size: 0.74rem; }
+
 /* ── Responsive Rules ── */
 @media (max-width: 980px) {
+    .workbench-grid {
+        grid-template-columns: 1fr;
+    }
+
     .hero-content {
         flex-direction: column-reverse;
         text-align: center;
