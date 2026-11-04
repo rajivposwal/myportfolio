@@ -213,15 +213,13 @@ document.addEventListener('DOMContentLoaded', () => {
         whoami: [
             '<span class="t-cyan">Rajiv Kumar</span> — Software & Data Science Engineer',
             'Education: B.Tech Computer Science & Engineering (Lovely Professional University)',
-            'Specialization: Python, Full-Stack Web Applications, Machine Learning, Systems Architecture',
+            'Core Skills: Python, SQL, Power BI, Excel, DSA, HTML, CSS, JS',
             'Philosophy: Building reliable, high-performance software with clean design & integrity.'
         ],
         skills: [
-            '<span class="t-cyan">[LANGUAGES]</span>  Python, SQL, JavaScript, HTML5, CSS3, Java',
-            '<span class="t-cyan">[FRAMEWORKS]</span> Flask, Jinja2, RESTful APIs, Bootstrap',
-            '<span class="t-cyan">[DATABASES]</span>  MySQL, SQLite, Schema Design, Query Optimization',
-            '<span class="t-cyan">[ANALYTICS]</span>   Power BI, Data Processing, Jupyter Notebook',
-            '<span class="t-cyan">[DEV TOOLS]</span>  Git, GitHub, VS Code, Linux/Bash, IntelliJ IDEA'
+            '<span class="t-cyan">[PROGRAMMING]</span> Python, DSA',
+            '<span class="t-cyan">[WEB DEV]</span>     HTML, CSS, JS',
+            '<span class="t-cyan">[DATA &amp; BI]</span>   SQL, Power BI, Excel'
         ],
         projects: [
             '<span class="t-green">1. NexLib Management System:</span> Python-based digital library with inventory tracking and auto fine calculation. <a href="librarymanagementsystem/" target="_blank" class="t-link">[Live Demo]</a>',
